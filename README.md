@@ -32,15 +32,13 @@ stow zsh
 stow git
 stow p10k
 stown vim
+stow asdf
 ```
 
 ## Themes
 
-The themes folder contains my favorite themes.
-
-## iTerm2
+### iTerm2
 
 ```
 open ~/dotfiles/themes/iterm/TokyoNight.itermcolors
 ```
-
