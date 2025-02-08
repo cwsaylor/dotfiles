@@ -1,18 +1,46 @@
 # dotfiles and configs
 
-To be used with GNU Stow.
+These dotfiles are to be used with GNU Stow. Let's first install some tools. 
 
-Run this one first to set a config for stow to make --dotfiles the default option
-
-```stow --dotfiles stow```
+## XCode tools for MacOS
 
 ```
-stow git
+xcode-select --install
+```
+
+## Homebrew
+
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+## oh my zsh
+
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+## dotfiles setup with Stow
+
+```
+cd ~
+mv .zshrc .zshrc.ohmyzshdefault
+git clone git@github.com:cwsaylor/dotfiles.git
+cd dotfiles
+stow --dotfiles stow
 stow zsh
+stow git
 stow p10k
+stown vim
 ```
 
 ## Themes
 
-The themes folder contains my favorite theme for Panic Prompt and iTerm2.
+The themes folder contains my favorite themes.
+
+## iTerm2
+
+```
+open ~/dotfiles/themes/iterm/TokyoNight.itermcolors
+```
 
