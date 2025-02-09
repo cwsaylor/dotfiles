@@ -10,6 +10,7 @@ else
 fi
 
 alias n="nvim"
+
 alias ls="eza --icons"
 alias lt="eza --icons -Tag --level=1"
 alias lt1="eza --icons -Tag --level=1"
@@ -17,11 +18,7 @@ alias lt2="eza --icons -Tag --level=2"
 alias lt3="eza --icons -Tag --level=3"
 alias ltr="eza --icons -Tag"
 
-eval "$(rbenv init - zsh)"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/mysql-client/lib"
