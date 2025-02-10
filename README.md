@@ -36,7 +36,8 @@ stow --dotfiles stow
 stow zsh
 stow git
 stow p10k
-stown vim
+stow vim
+stow neovim
 stow asdf
 ```
 
