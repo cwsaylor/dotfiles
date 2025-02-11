@@ -4,6 +4,9 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+set backupdir=/tmp
+set noswapfile
+
 call plug#begin()
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-commentary'
@@ -25,8 +28,20 @@ nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 
+" Toggle netrw file explorer
 nnoremap <C-n> :Lexplore<CR>
+
+" Toggle previous buffer
 nnoremap <C-b> :b#<CR>
+
+" Make splitting a bit easier
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+set splitbelow
+set splitright
 
 " absolute width of netrw window
 let g:netrw_winsize = -28
