@@ -10,3 +10,11 @@
 	defaultBranch = main
 [color]
 	ui = true
+[alias]
+	s = status
+	st = status
+	c = commit
+	sw = switch
+	br = branch
+	co = checkout
+	dc = diff --cached
