@@ -62,6 +62,9 @@ https://github.com/kien/ctrlp.vim
 https://github.com/tpope/vim-fugitive
 https://github.com/bling/vim-airline
 
+Run this in vim after installation:
+`:Copilot setup`
+
 ### Custom Vim Shortcuts
 
 * Leader is set to space
