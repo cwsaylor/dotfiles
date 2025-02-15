@@ -16,7 +16,7 @@ Plug 'vim-test/vim-test'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'bling/vim-airline'
-Plug 'github/copilot.vim'
+#Plug 'github/copilot.vim'
 call plug#end()
 
 nnoremap <SPACE> <Nop>
