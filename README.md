@@ -14,13 +14,33 @@ xcode-select --install
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
+## On MacOS
+```
+cd dotfiles
+brew bundle
+```
+
+## Cursor Extensions
+Manually install [Cursor](https://www.cursor.com/) and the command line extension.
+```
+cursor --install-extension clemenspeters.format-json
+cursor --install-extension eamodio.gitlens
+cursor --install-extension enkia.tokyo-night
+cursor --install-extension ms-python.debugpy
+cursor --install-extension ms-python.python
+cursor --install-extension ms-python.vscode-pylance
+cursor --install-extension shopify.ruby-lsp
+cursor --install-extension vscodevim.vim
+```
+
 ## oh my zsh
 
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-## Powerlevel 10k, auto suggestions, and syntz highlighting for ZSH
+## Powerlevel 10k, auto suggestions, and syntax highlighting for ZSH
+
 Run these commands to install. Then open a new terminal window to run the P10k configuration editor.
 ```
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
@@ -29,27 +49,26 @@ git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting "${ZSH_
 ```
 
 ## dotfiles setup with Stow
+
 ```
 cd ~
 mv .zshrc .zshrc.ohmyzshdefault
 git clone git@github.com:cwsaylor/dotfiles.git
 cd dotfiles
 stow --dotfiles stow
-stow zsh
+stow asdf
+stow cursor
 stow git
+stow kitty
+stow neovim
 stow p10k
 stow vim
-stow neovim
-stow asdf
+stow vscode
+stow zsh
 ```
-## Themes
 
-### iTerm2
-
-```
-open ~/dotfiles/themes/iterm/TokyoNight.itermcolors
-```
 ## Vim
+
 I'm using vim-plug to install my vim plugins. vim-plug will be auto-installed on first run.
 Run `:PlugInstall` in vim if you add more plugins.
 
@@ -76,7 +95,3 @@ Run this in vim after installation:
 * <leader> + a - Run test suite
 * <leader> + l - Run last test 
 * <leader> + g - Switch to last test file
-
-## NeoVim
-I'm using Lazyvim to install my Neovim plugins.
-
