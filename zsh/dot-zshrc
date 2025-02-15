@@ -24,9 +24,11 @@ export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 if [[ -f "$HOME/.asdf/asdf.sh" ]]; then
-  export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
   . "$HOME/.asdf/asdf.sh"
 fi
+
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+
 alias n="nvim"
 
 if command -v fzf &> /dev/null; then
