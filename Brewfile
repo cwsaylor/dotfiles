@@ -5,7 +5,7 @@ tap "homebrew/bundle"
 cask "kitty"
 cask "localsend"
 cask "ngrok"
-cask "visual-studio-code"
+# cask "visual-studio-code"
 
 # Terminal utilities
 brew "ack"
