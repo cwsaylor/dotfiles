@@ -8,14 +8,15 @@ set backupdir=/tmp
 set noswapfile
 
 call plug#begin()
-Plug 'tpope/vim-sensible'
+Plug 'bling/vim-airline'
+Plug 'kien/ctrlp.vim'
+Plug 'navicore/vissort.vim'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'vim-test/vim-test'
-Plug 'kien/ctrlp.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'bling/vim-airline'
 call plug#end()
 
 nnoremap <SPACE> <Nop>
