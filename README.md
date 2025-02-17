@@ -67,6 +67,14 @@ stow vscode
 stow zsh
 ```
 
+## asdf
+
+You will need to install the plugins for the programs in ~/.tool-versions.
+You can do this with the following command line:
+```
+awk '!/^#/ {print $1}' .tool-versions | xargs -I {} asdf plugin add {}
+```
+
 ## Vim
 
 I'm using vim-plug to install my vim plugins. vim-plug will be auto-installed on first run.
