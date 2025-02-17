@@ -18,3 +18,4 @@
 	br = branch
 	co = checkout
 	dc = diff --cached
+	d = diff
