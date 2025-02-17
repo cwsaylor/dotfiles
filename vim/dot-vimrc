@@ -6,6 +6,8 @@ endif
 
 set backupdir=/tmp
 set noswapfile
+set number
+set numberwidth=3
 
 call plug#begin()
 Plug 'bling/vim-airline'
