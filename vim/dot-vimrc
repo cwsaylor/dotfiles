@@ -66,3 +66,7 @@ let g:netrw_sort_sequence = '[\/]$,*'
 " Change directory to the current buffer when opening files.
 set autochdir
 
+" Set per directory vimrc settings
+if filereadable(".vimrc_proj")
+    so .vimrc_proj
+endif
