@@ -37,11 +37,11 @@ fi
 
 if command -v eza &> /dev/null; then
   alias ls="eza --icons"
-  alias lt="eza --icons -Tag --level=1"
-  alias lt1="eza --icons -Tag --level=1"
-  alias lt2="eza --icons -Tag --level=2"
-  alias lt3="eza --icons -Tag --level=3"
-  alias ltr="eza --icons -Tag"
+  alias lt="eza --icons -T"
+  alias lt1="eza --icons -T --level=1"
+  alias lt2="eza --icons -T --level=2"
+  alias lt3="eza --icons -T --level=3"
+  alias lt4="eza --icons -T --level=4"
 fi
 
 fastfetch
