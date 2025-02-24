@@ -70,3 +70,6 @@ set autochdir
 if filereadable(".vimrc_proj")
     so .vimrc_proj
 endif
+
+" Show fancy hidden characters
+:set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»
