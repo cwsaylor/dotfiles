@@ -2,10 +2,12 @@ tap "heroku/brew"
 tap "homebrew/bundle"
 
 # Mac Apps
-cask "kitty"
+# cask "kitty"
+cask "ghostty"
 cask "localsend"
 cask "ngrok"
 # cask "visual-studio-code"
+# cask "cursor"
 
 # Terminal utilities
 brew "ack"

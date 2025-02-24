@@ -58,8 +58,8 @@ cd dotfiles
 stow --dotfiles stow
 stow asdf
 stow cursor
+stow ghostty
 stow git
-stow kitty
 stow neovim
 stow p10k
 stow vim
@@ -79,18 +79,6 @@ awk '!/^#/ {print $1}' .tool-versions | xargs -I {} asdf plugin add {}
 
 I'm using vim-plug to install my vim plugins. vim-plug will be auto-installed on first run.
 Run `:PlugInstall` in vim if you add more plugins.
-
-https://github.com/tpope/vim-sensible
-https://github.com/tpope/vim-commentary
-https://github.com/tpope/vim-sleuth
-https://github.com/tpope/vim-surround
-https://github.com/vim-test/vim-test
-https://github.com/kien/ctrlp.vim
-https://github.com/tpope/vim-fugitive
-https://github.com/bling/vim-airline
-
-Run this in vim after installation:
-`:Copilot setup`
 
 ### Custom Vim Shortcuts
 
