@@ -1,2 +1,2 @@
-Host 143.198.76.233
+Host *
   SetEnv TERM=xterm-256color
