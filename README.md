@@ -91,3 +91,18 @@ Run `:PlugInstall` in vim if you add more plugins.
 * <leader> + a - Run test suite
 * <leader> + l - Run last test 
 * <leader> + g - Switch to last test file
+
+## Docker
+
+I have a docker compose file that will start postgresql and adminer.
+
+```
+cd ~/dotfiles/docker
+docker compose up -d
+```
+
+For adminer, vist http://127.0.0.1:8080
+
+There is also a docker file for running Jupyter Notebook with Python, Ruby, Javascript, and Rust.
+You will need to have a docker hub account and edit the docker username in run_once.sh. Also edit the token.
+
