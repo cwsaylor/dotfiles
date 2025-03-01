@@ -10,6 +10,15 @@ services:
     volumes:
       - postgres-data:/var/lib/postgresql/data
 
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: cwsaylor@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: SuperSecret99
+    ports:
+      - 8081:80
+
   adminer:
     image: adminer
     restart: unless-stopped
