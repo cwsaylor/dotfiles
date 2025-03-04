@@ -14,8 +14,8 @@ services:
     image: dpage/pgadmin4:latest
     restart: unless-stopped
     environment:
-      PGADMIN_DEFAULT_EMAIL: cwsaylor@gmail.com
-      PGADMIN_DEFAULT_PASSWORD: SuperSecret99
+      PGADMIN_DEFAULT_EMAIL: ${EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${EMAIL}
     ports:
       - 8081:80
 

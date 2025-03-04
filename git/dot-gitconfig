@@ -3,9 +3,6 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[user]
-	name = Chris Saylor
-	email = cwsaylor@gmail.com
 [init]
 	defaultBranch = main
 [color]

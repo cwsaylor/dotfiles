@@ -1,0 +1,14 @@
+services:
+  jupyter:
+    image: "${DOCKER_USERNAME}/jupyter_with_ruby"
+    container_name: jupyter
+    restart: unless-stopped
+    environment:
+      - GRANT_SUDO=yes
+      - JUPYTER_ENABLE_LAB=yes
+    user: root
+    ports:
+      - "8888:8888"
+    volumes:
+      - /Users/${USER}/jupyter:/home/jovyan/work
+    command: start-notebook.sh --NotebookApp.token="${JUPYTER_TOKEN}"
