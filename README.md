@@ -92,6 +92,9 @@ echo "export JUPYTER_TOKEN=token" >> ~/.env_vars
 pgAdmin has it's own login system and uses the EMAIL environment variable as the username and password.
 adminer logs in with the postgresql username and password, which are both set to your system username, USER.
 
+When configuring the database connection, use the hostname "db", as that's the name defined in the compose.yml file for 
+communications inside of the docker network.
+
 ```
 cd ~/dotfiles/docker/postgresql
 docker compose up -d
