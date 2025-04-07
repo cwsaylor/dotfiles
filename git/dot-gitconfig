@@ -16,3 +16,6 @@
 	co = checkout
 	dc = diff --cached
 	d = diff
+[user]
+	name = Christopher Saylor
+	email = cwsaylor@gmail.com

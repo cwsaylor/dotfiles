@@ -23,12 +23,6 @@ export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig"
 # To customize prompt, run `p10k configure`
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-if [[ -f "$HOME/.asdf/asdf.sh" ]]; then
-  . "$HOME/.asdf/asdf.sh"
-fi
-
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-
 alias n="nvim"
 
 if command -v fzf &> /dev/null; then
@@ -44,9 +38,9 @@ if command -v eza &> /dev/null; then
   alias lt4="eza --icons -T --level=4"
 fi
 
-
 if [[ -f "$HOME/.env_vars" ]]; then
   . "$HOME/.env_vars"
 fi
 
 fastfetch
+
