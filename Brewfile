@@ -22,6 +22,7 @@ brew "powerlevel10k"
 brew "ripgrep"
 brew "starship"
 brew "stow"
+brew "tree"
 #brew "wget"
 #brew "zoxide"
 
