@@ -40,12 +40,16 @@ if command -v zoxide &> /dev/null; then
 fi
 
 if command -v eza &> /dev/null; then
-  alias ls="eza --icons"
-  alias lt="eza --icons -T"
-  alias lt1="eza --icons -T --level=1"
-  alias lt2="eza --icons -T --level=2"
-  alias lt3="eza --icons -T --level=3"
-  alias lt4="eza --icons -T --level=4"
+  alias e="eza --icons"
+  alias e1="eza --icons -T --level=1"
+  alias e2="eza --icons -T --level=2"
+  alias e3="eza --icons -T --level=3"
+  alias e4="eza --icons -T --level=4"
+  alias et="eza --icons -T"
+  alias ea="eza --icons -a"
+  alias el="eza --icons -l -h"
+  alias ela="eza --icons -l -a -h "
+  alias ee="eza --icons -l -a -h "
 fi
 
 if [[ -f "$HOME/.env_vars" ]]; then
@@ -53,4 +57,3 @@ if [[ -f "$HOME/.env_vars" ]]; then
 fi
 
 fastfetch
-
