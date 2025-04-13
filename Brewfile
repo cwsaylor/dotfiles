@@ -8,10 +8,12 @@ cask "localsend"
 cask "ngrok"
 # cask "visual-studio-code"
 # cask "cursor"
+cask "vnc-viewer"
 
 # Terminal utilities
 brew "ack"
 #brew "ast-grep"
+brew "bat"
 brew "eza"
 brew "fastfetch"
 brew "fd"
