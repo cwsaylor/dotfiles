@@ -33,6 +33,7 @@ alias c="cursor"
 
 if command -v fzf &> /dev/null; then
   source <(fzf --zsh)
+  alias f="fzf"
 fi
 
 if command -v zoxide &> /dev/null; then
