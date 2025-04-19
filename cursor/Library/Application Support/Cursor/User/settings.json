@@ -3,5 +3,15 @@
     "editor.minimap.enabled": false,
     "editor.fontFamily": "MesloLGS NF, Menlo, Monaco, 'Courier New', monospace",
     "editor.fontSize": 12,
-    "makefile.configureOnOpen": false
+    "makefile.configureOnOpen": false,
+    "[dart]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.rulers": [
+            80
+        ],
+        "editor.selectionHighlight": false,
+        "editor.tabCompletion": "onlySnippets",
+        "editor.wordBasedSuggestions": "off"
+    }
 }
