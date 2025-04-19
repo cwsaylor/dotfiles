@@ -62,6 +62,9 @@ if [[ -d "$HOME/Library/Android/sdk" ]]; then
   export PATH="$ANDROID_HOME/tools:$PATH"
   export PATH="$ANDROID_HOME/tools/bin:$PATH"
   export PATH="$ANDROID_HOME/platform-tools:$PATH"
+fi
+
+if [[ -d "$HOME/development/flutter/bin" ]]; then
   export PATH="$HOME/development/flutter/bin:$PATH"
 fi
 
