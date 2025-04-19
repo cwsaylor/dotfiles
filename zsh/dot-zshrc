@@ -57,4 +57,12 @@ if [[ -f "$HOME/.env_vars" ]]; then
   . "$HOME/.env_vars"
 fi
 
+if [[ -d "$HOME/Library/Android/sdk" ]]; then
+  export ANDROID_HOME="$HOME/Library/Android/sdk"
+  export PATH="$ANDROID_HOME/tools:$PATH"
+  export PATH="$ANDROID_HOME/tools/bin:$PATH"
+  export PATH="$ANDROID_HOME/platform-tools:$PATH"
+  export PATH="$HOME/development/flutter/bin:$PATH"
+fi
+
 fastfetch
