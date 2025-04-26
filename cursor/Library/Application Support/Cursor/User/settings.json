@@ -13,5 +13,13 @@
         "editor.selectionHighlight": false,
         "editor.tabCompletion": "onlySnippets",
         "editor.wordBasedSuggestions": "off"
-    }
+    },
+    "prettier.configPath": ".prettierrc.json",
+    "prettier.prettierPath": "./node_modules/prettier",
+    "editor.formatOnSave": true,
+    "prettier.requireConfig": true,
+    "prettier.documentSelectors": [
+        "*.tsx"
+    ],
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
