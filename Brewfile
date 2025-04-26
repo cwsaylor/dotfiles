@@ -35,6 +35,8 @@ brew "heroku"
 brew "lazydocker"
 brew "lazygit"
 brew "neovim"
+brew "node"
+brew "pnpm"
 
 # Programming Languages
 brew "go"
