@@ -29,6 +29,7 @@ brew "tree"
 #brew "zoxide"
 
 # Development tools
+brew "deno"
 brew "git"
 brew "gnupg"
 brew "heroku"
