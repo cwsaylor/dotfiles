@@ -144,6 +144,15 @@ if [[ -f "$HOME/.env_vars" ]]; then
 fi
 
 ################################################################################
+# docker command line completion 
+################################################################################
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/chris/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
+
+################################################################################
 # fastfetch
 ################################################################################
 fastfetch
