@@ -1,3 +1,6 @@
+################################################################################
+# ZSH
+################################################################################
 export ZSH="$HOME/.oh-my-zsh"
 # ZSH_THEME="powerlevel10k/powerlevel10k"
 ZSH_THEME=""
@@ -5,12 +8,35 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 DISABLE_AUTO_TITLE="true"
 
+# To customize prompt, run `p10k configure`
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+################################################################################
+# Add .local/bin for Oh my posh, nvm, etc
+################################################################################
+if [[ -d "$HOME/.local/bin" ]]; then
+  export PATH=$PATH:$HOME/.local/bin
+fi
+
+################################################################################
+# Oh My Posh
+################################################################################
+if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
+  eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/chris.toml)"
+fi
+
+################################################################################
+# Set terminal editor
+################################################################################
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
   export EDITOR='nvim'
 fi
 
+################################################################################
+# MySQL and PostgreSQL library config
+################################################################################
 export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/mysql-client/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/mysql-client/include"
@@ -21,42 +47,52 @@ export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig"
 
-# To customize prompt, run `p10k configure`
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
-  eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/chris.toml)"
-fi
-
-alias n="nvim"
-alias c="cursor"
-
-if command -v fzf &> /dev/null; then
+################################################################################
+# fzf
+################################################################################
+if [[ -d "$HOME/.fzf" ]]; then
+  export PATH=$PATH:$HOME/.fzf/bin
+  source "$HOME/.fzf/shell/completion.zsh"
+  # source "$HOME/.fzf/shell/key-bindings.zsh"
+  alias f="fzf"
+elif command -v fzf &> /dev/null; then
   source <(fzf --zsh)
   alias f="fzf"
 fi
 
+################################################################################
+# zoxide
+################################################################################
 if command -v zoxide &> /dev/null; then
   eval "$(zoxide init zsh)"
 fi
 
+################################################################################
+# Aliases
+################################################################################
+if command -v nvim  &> /dev/null; then
+  alias n="nvim"
+fi
+
+if command -v cursor &> /dev/null; then
+  alias c="cursor"
+fi
+
 if command -v eza &> /dev/null; then
   alias e="eza --icons"
+  alias ea="eza --icons -a"
+  alias el="eza --icons -l -h"
+  alias ela="eza --icons -l -a -h"
+  alias et="eza --icons -T"
   alias e1="eza --icons -T --level=1"
   alias e2="eza --icons -T --level=2"
   alias e3="eza --icons -T --level=3"
   alias e4="eza --icons -T --level=4"
-  alias et="eza --icons -T"
-  alias ea="eza --icons -a"
-  alias el="eza --icons -l -h"
-  alias ela="eza --icons -l -a -h "
-  alias ee="eza --icons -l -a -h "
 fi
 
-if [[ -f "$HOME/.env_vars" ]]; then
-  . "$HOME/.env_vars"
-fi
-
+################################################################################
+# Android studio and Flutter
+################################################################################
 if [[ -d "$HOME/Library/Android/sdk" ]]; then
   export ANDROID_HOME="$HOME/Library/Android/sdk"
   export PATH="$ANDROID_HOME/tools:$PATH"
@@ -68,4 +104,47 @@ if [[ -d "$HOME/development/flutter/bin" ]]; then
   export PATH="$HOME/development/flutter/bin:$PATH"
 fi
 
+################################################################################
+# nvm
+################################################################################
+if [[ -d "$HOME/.nvm" ]]; then
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
+
+################################################################################
+# Go
+################################################################################
+if [[ -d "/usr/local/go/bin" ]]; then
+  export PATH=$PATH:/usr/local/go/bin
+fi
+
+if [[ -d "$HOME/go/bin" ]]; then
+  export PATH=$PATH:$HOME/go/bin
+fi
+################################################################################
+# Deno
+################################################################################
+if [[ -d "$HOME/.deno" ]]; then
+  . "$HOME/.deno/env"
+fi
+
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then
+  export FPATH="$HOME/.zsh/completions:$FPATH";
+fi
+
+################################################################################
+# env vars
+################################################################################
+
+if [[ -f "$HOME/.env_vars" ]]; then
+  . "$HOME/.env_vars"
+fi
+
+################################################################################
+# fastfetch
+################################################################################
 fastfetch
+
