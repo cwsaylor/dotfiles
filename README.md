@@ -153,3 +153,7 @@ rbenv install 3.4.4
 rbenv global 3.4.4
 ```
 
+## Deno
+
+curl -fsSL https://deno.land/install.sh | sh
+
