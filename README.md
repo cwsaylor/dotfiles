@@ -1,4 +1,4 @@
-# dotfiles and configs
+u dotfiles and configs
 
 These dotfiles are to be used with GNU Stow. Let's first install some tools. 
 
@@ -23,12 +23,20 @@ brew bundle
 ## Cursor Extensions
 Manually install [Cursor](https://www.cursor.com/) and the command line extension.
 ```
+cursor --install-extension bierner.markdown-mermaid
+cursor --install-extension bradlc.vscode-tailwindcss
 cursor --install-extension clemenspeters.format-json
+cursor --install-extension dart-code.dart-code
+cursor --install-extension dart-code.flutter
+cursor --install-extension dsznajder.es7-react-js-snippets
 cursor --install-extension eamodio.gitlens
 cursor --install-extension enkia.tokyo-night
+cursor --install-extension esbenp.prettier-vscode
 cursor --install-extension ms-python.debugpy
 cursor --install-extension ms-python.python
 cursor --install-extension ms-python.vscode-pylance
+cursor --install-extension ms-vscode-remote.remote-containers
+cursor --install-extension ms-vscode.makefile-tools
 cursor --install-extension shopify.ruby-lsp
 cursor --install-extension vscodevim.vim
 ```
@@ -39,15 +47,6 @@ cursor --install-extension vscodevim.vim
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-## Powerlevel 10k, auto suggestions, and syntax highlighting for ZSH
-
-Run these commands to install. Then open a new terminal window to run the P10k configuration editor.
-```
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
-git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
-git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
-```
-
 ## dotfiles setup with Stow
 
 ```
@@ -56,25 +55,16 @@ mv .zshrc .zshrc.ohmyzshdefault
 git clone git@github.com:cwsaylor/dotfiles.git
 cd dotfiles
 stow --dotfiles stow
-stow asdf
 stow cursor
 stow ghostty
 stow git
-stow neovim
-stow p10k
+stow nushell
+stow ohmyposh
+stow ssh
 stow vim
 stow vscode
+stow zellij
 stow zsh
-```
-
-## Git setup
-
-After running stow git, you will need to set your git username and email,
-and then also save your email out to an environment variable for pgAdmin.
-
-```
-git config --global user.name "Mona Lisa"
-git config --global user.email "overdrive@gibson.com"
 ```
 
 ## Docker
@@ -85,6 +75,17 @@ There are some environment varaibles that need setup before running the docker c
 echo "export EMAIL=overdrive@gibson.com" >> ~/.env_vars
 echo "export DOCKER_USERNAME=monalisa" >> ~/.env_vars
 echo "export JUPYTER_TOKEN=token" >> ~/.env_vars
+
+```
+
+## Git setup
+
+After running stow git, you will need to set your git username and email,
+and then also save your email out to an environment variable for pgAdmin.
+
+```
+git config --global user.name "Mona Lisa"
+git config --global user.email "overdrive@gibson.com"
 ```
 
 ### Postgresql
@@ -117,14 +118,6 @@ mkdir ~/jupyter
 docker compose up -d
 ```
 
-## asdf
-
-You will need to install the plugins for the programs in ~/.tool-versions.
-You can do this with the following command line:
-```
-awk '!/^#/ {print $1}' .tool-versions | xargs -I {} asdf plugin add {}
-```
-
 ## Vim
 
 I'm using vim-plug to install my vim plugins. vim-plug will be auto-installed on first run.
@@ -141,4 +134,22 @@ Run `:PlugInstall` in vim if you add more plugins.
 * <leader> + a - Run test suite
 * <leader> + l - Run last test 
 * <leader> + g - Switch to last test file
+
+## Node Version Manager
+
+Run the latest install inscript here:
+https://github.com/nvm-sh/nvm
+
+```
+nvm install --lts
+```
+
+## Ruby
+
+```
+git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
+rbenv install 3.4.4
+rbenv global 3.4.4
+```
 
