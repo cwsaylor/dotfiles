@@ -1,25 +1,22 @@
 {
-    "workbench.colorTheme": "Tokyo Night",
-    "editor.minimap.enabled": false,
-    "editor.fontFamily": "MesloLGS NF, Menlo, Monaco, 'Courier New', monospace",
-    "editor.fontSize": 12,
-    "makefile.configureOnOpen": false,
-    "[dart]": {
-        "editor.formatOnSave": true,
-        "editor.formatOnType": true,
-        "editor.rulers": [
-            80
-        ],
-        "editor.selectionHighlight": false,
-        "editor.tabCompletion": "onlySnippets",
-        "editor.wordBasedSuggestions": "off"
-    },
-    "prettier.configPath": ".prettierrc.json",
-    "prettier.prettierPath": "./node_modules/prettier",
+  "workbench.colorTheme": "Tokyo Night",
+  "editor.minimap.enabled": false,
+  "editor.fontFamily": "MesloLGS NF, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontSize": 12,
+  "makefile.configureOnOpen": false,
+  "[dart]": {
     "editor.formatOnSave": true,
-    "prettier.requireConfig": true,
-    "prettier.documentSelectors": [
-        "*.tsx"
-    ],
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.formatOnType": true,
+    "editor.rulers": [80],
+    "editor.selectionHighlight": false,
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": "off"
+  },
+  "prettier.configPath": ".prettierrc.json",
+  "prettier.prettierPath": "./node_modules/prettier",
+  "editor.formatOnSave": true,
+  "prettier.requireConfig": true,
+  "prettier.documentSelectors": ["*.tsx"],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "roo-cline.vsCodeLmModelSelector": {}
 }
