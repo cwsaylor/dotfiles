@@ -2,14 +2,10 @@
 # ZSH
 ################################################################################
 export ZSH="$HOME/.oh-my-zsh"
-# ZSH_THEME="powerlevel10k/powerlevel10k"
 ZSH_THEME=""
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 DISABLE_AUTO_TITLE="true"
-
-# To customize prompt, run `p10k configure`
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 ################################################################################
 # Add .local/bin for Oh my posh, nvm, etc
@@ -31,21 +27,25 @@ fi
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='nvim'
+  export EDITOR='vim'
 fi
 
 ################################################################################
 # MySQL and PostgreSQL library config
 ################################################################################
-export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
-export LDFLAGS="-L/opt/homebrew/opt/mysql-client/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/mysql-client/include"
-export PKG_CONFIG_PATH="/opt/homebrew/opt/mysql-client/lib/pkgconfig"
+if [[ -d "/opt/homebrew/opt/mysql-client" ]]; then
+  export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+  export LDFLAGS="-L/opt/homebrew/opt/mysql-client/lib"
+  export CPPFLAGS="-I/opt/homebrew/opt/mysql-client/include"
+  export PKG_CONFIG_PATH="/opt/homebrew/opt/mysql-client/lib/pkgconfig"
+fi
 
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
-export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig"
+if [[ -d "/opt/homebrew/opt/libpq" ]]; then
+  export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+  export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
+  export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
+  export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig"
+fi
 
 ################################################################################
 # fzf
@@ -88,6 +88,10 @@ if command -v eza &> /dev/null; then
   alias e2="eza --icons -T --level=2"
   alias e3="eza --icons -T --level=3"
   alias e4="eza --icons -T --level=4"
+fi
+
+if command -v kubectl &> /dev/null; then
+  alias k="kubectl"
 fi
 
 ################################################################################
@@ -146,11 +150,11 @@ fi
 ################################################################################
 # docker command line completion 
 ################################################################################
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/chris/.docker/completions $fpath)
-autoload -Uz compinit
-compinit
-# End of Docker CLI completions
+if [[ -d "$HOME/.docker" ]]; then
+  fpath=($HOME/.docker/completions $fpath)
+  autoload -Uz compinit
+  compinit
+fi
 
 ################################################################################
 # fastfetch

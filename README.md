@@ -102,7 +102,7 @@ docker compose up -d
 ```
 
 For pgAdmin, vist http://127.0.0.1:8081
-For adminer, vist http://127.0.0.1:8080
+For adminer, vist http://127.0.0.1:8082
 
 ### Jupyter
 
@@ -129,11 +129,18 @@ Run `:PlugInstall` in vim if you add more plugins.
 * Ctrl + n - Toggle Explorer
 * ctrl + p - Fuzzy find files
 * ctrl + b - Toggle between last two open buffers
-* <leader> + t - Run nearest test
-* <leader> + T - Run test file
-* <leader> + a - Run test suite
-* <leader> + l - Run last test 
-* <leader> + g - Switch to last test file
+* ctrl + j - Move to split down
+* ctrl + k - Move to split up
+* ctrl + l - Move to split right
+* ctrl + h - Move to split left
+* ctrl + c - Close buffer
+* space + t - Run nearest test
+* space + T - Run test file
+* space + a - Run test suite
+* space + l - Run last test 
+* space + g - Switch to last test file
+* space + s - Split below and open netrw
+* space + v - Split right and open netrw
 
 ## Node Version Manager
 

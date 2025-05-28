@@ -2,12 +2,11 @@ tap "heroku/brew"
 tap "homebrew/bundle"
 
 # Mac Apps
-# cask "kitty"
+# cask "cursor"
 cask "ghostty"
 # cask "localsend"
 cask "ngrok"
 # cask "visual-studio-code"
-# cask "cursor"
 cask "vnc-viewer"
 
 # Terminal utilities
@@ -20,7 +19,7 @@ brew "fd"
 brew "ffmpeg"
 brew "fzf"
 brew "nushell"
-brew "oh-my-post"
+brew "oh-my-posh"
 # brew "powerlevel10k"
 brew "ripgrep"
 # brew "starship"
@@ -41,7 +40,7 @@ brew "neovim"
 # brew "pnpm"
 
 # Programming Languages
-brew "go"
+brew "golang"
 brew "python@3.10"
 brew "python@3.11"
 brew "python@3.12"
@@ -51,7 +50,7 @@ brew "rust"
 # Development libraries
 #brew "graphviz"
 brew "libpq", link: true
-brew "mysql-client"
+# brew "mysql-client"
 brew "utf8proc", args: ["HEAD"]
 brew "vips"
 
