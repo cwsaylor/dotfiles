@@ -23,6 +23,8 @@ sudo xcodebuild -license accept
 
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 ```
 
 After running stow git, you will need to set your git username and email,
@@ -66,6 +68,7 @@ Manually install [Cursor](https://www.cursor.com/) and the command line extensio
 ```
 cd ~
 mv .zshrc .zshrc.ohmyzshdefault
+mv .zprofile .zprofile.default
 git clone git@github.com:cwsaylor/dotfiles.git
 cd dotfiles
 stow --dotfiles .
