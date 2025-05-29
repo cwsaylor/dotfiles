@@ -27,3 +27,4 @@ _darcs
 nolink/*
 README.md
 Brewfile
+docker/*

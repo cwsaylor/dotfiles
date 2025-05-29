@@ -1,6 +1,16 @@
-u dotfiles and configs
+# dotfiles, configs, and applications
 
-These dotfiles are to be used with GNU Stow. Let's first install some tools. 
+This set of files includes dotfiles for GNU Stow,
+a Brewfile for installing applications,
+and commands for installing developer tools.
+
+## First Steps
+
+Generate or restore ssh keys.
+
+https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
+Fix DNS settings to point to Cloudflare 1.1.1.1 and 1.0.0.1
 
 ## XCode tools for MacOS
 
@@ -8,11 +18,35 @@ These dotfiles are to be used with GNU Stow. Let's first install some tools.
 xcode-select --install
 ```
 
+## oh my zsh
+
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+After running stow git, you will need to set your git username and email,
+and then also save your email out to an environment variable for pgAdmin.
+
+```
+git config --global user.name "Mona Lisa"
+git config --global user.email "overdrive@gibson.com"
+```
+
 ## Homebrew
 
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
+
+Follow the install directions and immediately install stow.
+
+```
+brew install stow
+cd dotfiles
+stow --dotfiles zsh
+```
+
+Open a new tab
 
 ## On MacOS
 ```
@@ -23,28 +57,7 @@ brew bundle
 ## Cursor Extensions
 Manually install [Cursor](https://www.cursor.com/) and the command line extension.
 ```
-cursor --install-extension bierner.markdown-mermaid
-cursor --install-extension bradlc.vscode-tailwindcss
-cursor --install-extension clemenspeters.format-json
-cursor --install-extension dart-code.dart-code
-cursor --install-extension dart-code.flutter
-cursor --install-extension dsznajder.es7-react-js-snippets
-cursor --install-extension eamodio.gitlens
-cursor --install-extension enkia.tokyo-night
-cursor --install-extension esbenp.prettier-vscode
-cursor --install-extension ms-azuretools.vscode-docker
-cursor --install-extension ms-python.debugpy
-cursor --install-extension ms-python.python
-cursor --install-extension ms-python.vscode-pylance
-cursor --install-extension ms-vscode.makefile-tools
-cursor --install-extension shopify.ruby-lsp
-cursor --install-extension vscodevim.vim
-```
-
-## oh my zsh
-
-```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+./setup_cursor.sh
 ```
 
 ## dotfiles setup with Stow
@@ -54,20 +67,13 @@ cd ~
 mv .zshrc .zshrc.ohmyzshdefault
 git clone git@github.com:cwsaylor/dotfiles.git
 cd dotfiles
-stow --dotfiles stow
-stow cursor
-stow ghostty
-stow git
-stow nushell
-stow ohmyposh
-stow ssh
-stow vim
-stow vscode
-stow zellij
-stow zsh
+stow --dotfiles .
 ```
 
 ## Docker
+
+Install Docker Desktop
+https://www.docker.com/products/docker-desktop/
 
 There are some environment varaibles that need setup before running the docker commands.
 
@@ -76,16 +82,6 @@ echo "export EMAIL=overdrive@gibson.com" >> ~/.env_vars
 echo "export DOCKER_USERNAME=monalisa" >> ~/.env_vars
 echo "export JUPYTER_TOKEN=token" >> ~/.env_vars
 
-```
-
-## Git setup
-
-After running stow git, you will need to set your git username and email,
-and then also save your email out to an environment variable for pgAdmin.
-
-```
-git config --global user.name "Mona Lisa"
-git config --global user.email "overdrive@gibson.com"
 ```
 
 ### Postgresql
@@ -164,3 +160,12 @@ rbenv global 3.4.4
 
 curl -fsSL https://deno.land/install.sh | sh
 
+## Flutter Development
+
+* https://flutter.dev/
+
+## Manual Installs
+
+* https://one.one.one.one/
+* https://www.techsmith.com/camtasia/
+* https://www.techsmith.com/snagit/

@@ -1,45 +1,58 @@
 tap "heroku/brew"
 tap "homebrew/bundle"
+tap "homebrew/services"
+tap "jesseduffield/lazygit"
+
+brew "mas"
 
 # Mac Apps
-# cask "cursor"
+
+cask "cursor"
 cask "ghostty"
-# cask "localsend"
 cask "ngrok"
-# cask "visual-studio-code"
+cask "visual-studio-code"
 cask "vnc-viewer"
 
+mas "Affinity Designer 2", id: 1616831348
+mas "Amphetamine", id: 937984704
+mas "Color Picker", id: 1545870783
+mas "CrystalFetch", id: 6454431289
+mas "Final Cut Pro", id: 424389933
+mas "Logic Pro" id: 634148309
+mas "Magnet", id: 441258766
+mas "Marked 2", id: 890031187
+mas "Motion", id: 434290957
+mas "Slack", id: 803453959
+mas "Xcode", id: 497799835
+mas "UTM", id: 1538878817
+mas "Windows App", id: 1295203466
+
 # Terminal utilities
+
 brew "ack"
 brew "ast-grep"
 brew "bat"
 brew "eza"
 brew "fastfetch"
 brew "fd"
-brew "ffmpeg"
 brew "fzf"
-brew "nushell"
 brew "oh-my-posh"
-# brew "powerlevel10k"
 brew "ripgrep"
-# brew "starship"
 brew "stow"
 brew "tree"
-#brew "wget"
 brew "zoxide"
 
 # Development tools
-# brew "deno"
+
 brew "git"
 brew "gnupg"
 brew "heroku"
 brew "lazydocker"
 brew "lazygit"
 brew "neovim"
-# brew "node"
-# brew "pnpm"
 
 # Programming Languages
+
 brew "golang"
 brew "python@3.10"
 brew "python@3.11"
@@ -48,13 +61,10 @@ brew "python@3.13"
 brew "rust"
 
 # Development libraries
-#brew "graphviz"
 brew "libpq", link: true
-# brew "mysql-client"
-brew "utf8proc", args: ["HEAD"]
-brew "vips"
 
 # VSCode extensions
+
 vscode "bierner.markdown-mermaid"
 vscode "bradlc.vscode-tailwindcss"
 vscode "clemenspeters.format-json"
