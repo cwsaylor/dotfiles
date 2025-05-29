@@ -16,6 +16,7 @@ Fix DNS settings to point to Cloudflare 1.1.1.1 and 1.0.0.1
 
 ```
 xcode-select --install
+sudo xcodebuild -license accept
 ```
 
 ## oh my zsh

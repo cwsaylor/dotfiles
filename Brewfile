@@ -1,6 +1,4 @@
 tap "heroku/brew"
-tap "homebrew/bundle"
-tap "homebrew/services"
 tap "jesseduffield/lazygit"
 
 brew "mas"
