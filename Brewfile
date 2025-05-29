@@ -18,7 +18,7 @@ mas "Amphetamine", id: 937984704
 mas "Color Picker", id: 1545870783
 mas "CrystalFetch", id: 6454431289
 mas "Final Cut Pro", id: 424389933
-mas "Logic Pro" id: 634148309
+mas "Logic Pro", id: 634148309
 mas "Magnet", id: 441258766
 mas "Marked 2", id: 890031187
 mas "Motion", id: 434290957
