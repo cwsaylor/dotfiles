@@ -155,10 +155,12 @@ nvm install --lts
 ## Ruby
 
 ```
+brew install libyaml libssl@3
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
 rbenv install 3.4.4
 rbenv global 3.4.4
+gem install rails
 ```
 
 ## Deno
@@ -167,7 +169,14 @@ curl -fsSL https://deno.land/install.sh | sh
 
 ## Flutter Development
 
+```
+sudo softwareupdate --install-rosetta --agree-to-license
+```
+
+Download flutter and install to ~/.flutter
+
 * https://flutter.dev/
+* https://developer.android.com/studio
 
 ## Manual Installs
 

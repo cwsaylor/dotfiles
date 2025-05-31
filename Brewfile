@@ -5,6 +5,7 @@ brew "mas"
 
 # Mac Apps
 
+cask "chrome"
 cask "cursor"
 cask "ghostty"
 cask "ngrok"
@@ -48,6 +49,8 @@ brew "gnupg"
 brew "heroku"
 brew "lazydocker"
 brew "lazygit"
+brew "libssl@3"
+brew "libyaml"
 brew "neovim"
 
 # Programming Languages
