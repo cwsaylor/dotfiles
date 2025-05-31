@@ -69,6 +69,7 @@ Manually install [Cursor](https://www.cursor.com/) and the command line extensio
 cd ~
 mv .zshrc .zshrc.ohmyzshdefault
 mv .zprofile .zprofile.default
+mkdir .config
 git clone git@github.com:cwsaylor/dotfiles.git
 cd dotfiles
 stow --dotfiles .
