@@ -152,6 +152,14 @@ https://github.com/nvm-sh/nvm
 nvm install --lts
 ```
 
+## NPM tools
+
+```
+npm install -g task-master-ai
+npm install -g @anthropic-ai/claude-code
+npm install -g @mermaid-js/mermaid-cli
+```
+
 ## Ruby
 
 ```
@@ -183,3 +191,4 @@ Download flutter and install to ~/.flutter
 * https://one.one.one.one/
 * https://www.techsmith.com/camtasia/
 * https://www.techsmith.com/snagit/
+
