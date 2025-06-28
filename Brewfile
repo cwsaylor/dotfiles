@@ -7,7 +7,7 @@ brew "mas"
 
 cask "chrome"
 cask "cursor"
-cask "ghostty"
+cask "iterm2"
 cask "ngrok"
 cask "visual-studio-code"
 cask "vnc-viewer"
