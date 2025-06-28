@@ -19,3 +19,5 @@
 [user]
 	name = Christopher Saylor
 	email = cwsaylor@gmail.com
+[pull]
+	rebase = true
