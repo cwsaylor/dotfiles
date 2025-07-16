@@ -161,3 +161,5 @@ fi
 ################################################################################
 fastfetch
 
+
+alias claude="/Users/chris/.claude/local/claude"
