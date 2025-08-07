@@ -1,6 +1,7 @@
 {
-    "workbench.colorTheme": "Tokyo Night",
+    "workbench.colorTheme": "Monokai Pro (Filter Ristretto)",
     "editor.minimap.enabled": false,
     "editor.fontFamily": "MesloLGS NF, Menlo, Monaco, 'Courier New', monospace",
-    "editor.fontSize": 12
+    "editor.fontSize": 12,
+    "workbench.iconTheme": "Monokai Pro (Filter Ristretto) Icons"
 }

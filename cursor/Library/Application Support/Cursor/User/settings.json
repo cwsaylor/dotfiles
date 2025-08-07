@@ -1,5 +1,5 @@
 {
-  "workbench.colorTheme": "Tokyo Night",
+  "workbench.colorTheme": "Monokai Pro (Filter Ristretto)",
   "editor.minimap.enabled": false,
   "editor.fontFamily": "MesloLGS NF, Menlo, Monaco, 'Courier New', monospace",
   "editor.fontSize": 12,
@@ -18,5 +18,9 @@
   "prettier.requireConfig": true,
   "prettier.documentSelectors": ["*.tsx"],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "roo-cline.vsCodeLmModelSelector": {}
+  "roo-cline.vsCodeLmModelSelector": {},
+  "editor.renderWhitespace": "none",
+  "git.blame.editorDecoration.enabled": true,
+  "workbench.iconTheme": "Monokai Pro (Filter Ristretto) Icons",
+  "git.openRepositoryInParentFolders": "never"
 }
