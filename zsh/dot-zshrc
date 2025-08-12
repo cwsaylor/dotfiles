@@ -94,6 +94,12 @@ if command -v kubectl &> /dev/null; then
   alias k="kubectl"
 fi
 
+if command -v cursor-agent &> /dev/null; then
+  alias ca="cursor-agent"
+fi
+
+alias claude="/Users/chris/.claude/local/claude"
+
 ################################################################################
 # Android studio and Flutter
 ################################################################################
@@ -161,5 +167,3 @@ fi
 ################################################################################
 fastfetch
 
-
-alias claude="/Users/chris/.claude/local/claude"
