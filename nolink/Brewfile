@@ -44,6 +44,7 @@ brew "zoxide"
 
 # Development tools
 
+brew "gh"
 brew "git"
 brew "gnupg"
 brew "heroku"
