@@ -100,6 +100,8 @@ fi
 
 alias claude="/Users/chris/.claude/local/claude"
 
+alias update="claude update && cursor-agent update && brew update && brew upgrade"
+
 ################################################################################
 # Android studio and Flutter
 ################################################################################
