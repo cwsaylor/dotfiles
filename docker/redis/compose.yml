@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:8-alpine
+    container_name: redis-server
+    platform: linux/arm64
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+      - ./redis.conf:/usr/local/etc/redis/redis.conf:ro
+    command: redis-server /usr/local/etc/redis/redis.conf
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    environment:
+      - REDIS_REPLICATION_MODE=master
+    networks:
+      - redis-network
+
+volumes:
+  redis-data:
+    driver: local
+
+networks:
+  redis-network:
+    driver: bridge
