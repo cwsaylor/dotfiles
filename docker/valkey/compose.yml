@@ -1,0 +1,15 @@
+services:
+  valkey:
+    image: valkey/valkey:8.0-alpine
+    container_name: valkey
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - valkey_data:/data
+    command: valkey-server --appendonly yes
+    platform: linux/arm64
+
+volumes:
+  valkey_data:
+    driver: local
