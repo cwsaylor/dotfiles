@@ -70,13 +70,35 @@ fi
 ################################################################################
 # Aliases
 ################################################################################
-if command -v nvim  &> /dev/null; then
-  alias n="nvim"
+alias claude="/Users/chris/.claude/local/claude"
+
+if command -v claude &> /dev/null; then
+  alias cl="claude"
 fi
 
 if command -v cursor &> /dev/null; then
-  alias c="cursor"
+  alias cu="cursor"
 fi
+
+if command -v cursor-agent &> /dev/null; then
+  alias ca="cursor-agent"
+fi
+
+if command -v kubectl &> /dev/null; then
+  alias k="kubectl"
+fi
+
+if command -v nvim  &> /dev/null; then
+  alias nv="nvim"
+fi
+
+if command -v pnpm &> /dev/null; then
+  alias p="pnpm"
+fi
+
+alias py="python"
+
+alias update="claude update && cursor-agent update && brew update && brew upgrade"
 
 if command -v eza &> /dev/null; then
   alias e="eza --icons"
@@ -89,18 +111,6 @@ if command -v eza &> /dev/null; then
   alias e3="eza --icons -T --level=3"
   alias e4="eza --icons -T --level=4"
 fi
-
-if command -v kubectl &> /dev/null; then
-  alias k="kubectl"
-fi
-
-if command -v cursor-agent &> /dev/null; then
-  alias ca="cursor-agent"
-fi
-
-alias claude="/Users/chris/.claude/local/claude"
-
-alias update="claude update && cursor-agent update && brew update && brew upgrade"
 
 ################################################################################
 # Android studio and Flutter
