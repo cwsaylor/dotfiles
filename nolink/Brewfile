@@ -6,6 +6,7 @@ brew "mas"
 # Mac Apps
 
 cask "chrome"
+cask "claude"
 cask "cursor"
 cask "iterm2"
 cask "ngrok"
