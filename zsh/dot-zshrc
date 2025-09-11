@@ -104,7 +104,7 @@ alias pn="pnpm"
 
 alias py="python"
 
-alias update="claude update && cursor-agent update && brew update && brew upgrade"
+alias update="claude update && cursor-agent update && brew update && brew upgrade && npm install -g @openai/codex"
 
 if command -v eza &> /dev/null; then
   alias e="eza --icons"
