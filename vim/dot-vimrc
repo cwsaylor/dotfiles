@@ -32,6 +32,14 @@ call plug#end()
 nnoremap <SPACE> <Nop>
 let mapleader=" "
 
+" Allow writing and quitting with a capital if you're shift finger is too slow
+command! W w
+command! Q quit
+
+" Allow ctrl + s to save
+nnoremap <silent><C-s> :update<CR>
+inoremap <silent><C-s> <Esc>:update<CR>
+
 " vim-test
 nmap <silent> <leader>t :TestNearest<CR>
 nmap <silent> <leader>T :TestFile<CR>
