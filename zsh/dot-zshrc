@@ -84,6 +84,10 @@ if command -v cursor-agent &> /dev/null; then
   alias ca="cursor-agent"
 fi
 
+if command -v gitmoni &> /dev/null; then
+  alias gim="gitmoni"
+fi
+
 if command -v kubectl &> /dev/null; then
   alias k="kubectl"
 fi
