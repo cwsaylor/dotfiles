@@ -1,5 +1,6 @@
 tap "heroku/brew"
 tap "jesseduffield/lazygit"
+tap "cwsaylor/tap"
 
 brew "mas"
 
@@ -8,24 +9,29 @@ brew "mas"
 cask "chrome"
 cask "claude"
 cask "cursor"
+cask "github"
 cask "iterm2"
+cask "font-meslo-lg-nerd-font"
+# cask "localsend"
 cask "ngrok"
 cask "visual-studio-code"
-cask "vnc-viewer"
+# cask "vnc-viewer"
 
 mas "Affinity Designer 2", id: 1616831348
 mas "Amphetamine", id: 937984704
 mas "Color Picker", id: 1545870783
-mas "CrystalFetch", id: 6454431289
+# mas "CrystalFetch", id: 6454431289
 mas "Final Cut Pro", id: 424389933
-mas "Logic Pro", id: 634148309
+# mas "Logic Pro", id: 634148309
 mas "Magnet", id: 441258766
-mas "Marked 2", id: 890031187
+# mas "Marked 2", id: 890031187
 mas "Motion", id: 434290957
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
 mas "Slack", id: 803453959
-mas "Xcode", id: 497799835
 mas "UTM", id: 1538878817
 mas "Windows App", id: 1295203466
+mas "Xcode", id: 497799835
 
 # Terminal utilities
 
@@ -35,8 +41,8 @@ brew "bat"
 brew "eza"
 brew "fastfetch"
 brew "fd"
-brew "font-meslo-lg-nerd-font"
 brew "fzf"
+brew "gitmoni"
 brew "oh-my-posh"
 brew "ripgrep"
 brew "stow"
@@ -82,12 +88,19 @@ vscode "enkia.tokyo-night"
 vscode "esbenp.prettier-vscode"
 vscode "github.copilot"
 vscode "github.copilot-chat"
+vscode "golang.go"
+vscode "laurencebahiirwa.deno-std-lib-snippets"
+vscode "mechatroner.rainbow-csv"
 vscode "monokai.theme-monokai-pro-vscode"
+vscode "ms-azuretools.vscode-containers"
 vscode "ms-azuretools.vscode-docker"
 vscode "ms-python.debugpy"
 vscode "ms-python.python"
 vscode "ms-python.vscode-pylance"
+vscode "ms-python.vscode-python-envs"
+vscode "ms-vscode-remote.remote-containers"
 vscode "ms-vscode.makefile-tools"
 vscode "shopify.ruby-lsp"
+vscode "tamasfe.even-better-toml"
 vscode "vscodevim.vim"
 
