@@ -21,7 +21,6 @@ cursor --install-extension ms-azuretools.vscode-containers
 cursor --install-extension ms-azuretools.vscode-docker
 cursor --install-extension ms-python.debugpy
 cursor --install-extension ms-python.python
-cursor --install-extension ms-python.vscode-pylance
 cursor --install-extension ms-python.vscode-python-envs
 cursor --install-extension ms-vscode-remote.remote-containers
 cursor --install-extension ms-vscode.makefile-tools
