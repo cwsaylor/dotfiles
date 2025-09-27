@@ -1,7 +1,7 @@
 {
   "workbench.colorTheme": "Monokai Pro (Filter Ristretto)",
   "editor.minimap.enabled": false,
-  "editor.fontFamily": "MesloLGS NF, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontFamily": "MesloLGS Nerd Font Mono, MesloLGS NF, Menlo, Monaco, 'Courier New', monospace",
   "editor.fontSize": 12,
   "makefile.configureOnOpen": false,
   "[dart]": {
@@ -22,5 +22,6 @@
   "editor.renderWhitespace": "none",
   "git.blame.editorDecoration.enabled": true,
   "workbench.iconTheme": "Monokai Pro (Filter Ristretto) Icons",
-  "git.openRepositoryInParentFolders": "never"
+  "git.openRepositoryInParentFolders": "never",
+  "terminal.integrated.fontFamily": "MesloLGS Nerd Font Mono"
 }
