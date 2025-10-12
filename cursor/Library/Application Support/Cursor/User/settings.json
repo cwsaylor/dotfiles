@@ -1,7 +1,7 @@
 {
   "workbench.colorTheme": "Monokai Pro (Filter Ristretto)",
   "editor.minimap.enabled": false,
-  "editor.fontFamily": "CaskaydiaCove Nerd Font, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontFamily": "JetBrainsMono Nerd Font Mono, Menlo, Monaco, 'Courier New', monospace",
   "editor.fontSize": 12,
   "makefile.configureOnOpen": false,
   "[dart]": {
@@ -23,5 +23,5 @@
   "git.blame.editorDecoration.enabled": true,
   "workbench.iconTheme": "Monokai Pro (Filter Ristretto) Icons",
   "git.openRepositoryInParentFolders": "never",
-  "terminal.integrated.fontFamily": "CaskaydiaCove Nerd Font"
+  "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font Mono"
 }
