@@ -87,6 +87,8 @@ fi
 ################################################################################
 alias claude="/Users/chris/.claude/local/claude"
 
+alias weather="curl wttr.in/95492\?u"
+
 if command -v claude &> /dev/null; then
   alias cl="claude"
 fi
@@ -207,6 +209,14 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
+
+################################################################################
+# bun & completions
+################################################################################
+[ -s "/Users/chris/.bun/_bun" ] && source "/Users/chris/.bun/_bun"
+
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
 
 ################################################################################
 # fastfetch
