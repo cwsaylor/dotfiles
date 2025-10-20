@@ -1,80 +1,28 @@
 # dotfiles, configs, and applications
 
-This set of files includes dotfiles for GNU Stow,
-a Brewfile for installing applications,
-and commands for installing developer tools.
+This set of files includes dotfiles for GNU Stow, a Brewfile for installing applications, and commands for installing developer tools.
 
-## First Steps
-
-Generate or restore ssh keys.
-
-https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
-
-Fix DNS settings to point to Cloudflare 1.1.1.1 and 1.0.0.1
-
-## XCode tools for MacOS
-
-```
-xcode-select --install
-sudo xcodebuild -license accept
-```
-
-## oh my zsh
-
-```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
-```
-
-After running stow git, you will need to set your git username and email,
-and then also save your email out to an environment variable for pgAdmin.
-
-```
-git config --global user.name "Mona Lisa"
-git config --global user.email "overdrive@gibson.com"
-```
-
-## Homebrew
-
-```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-Follow the install directions and immediately install stow.
-
-```
-brew install stow
-cd dotfiles
-stow --dotfiles zsh
-```
-
-Open a new tab
-
-## On MacOS
-```
-cd dotfiles
-brew bundle
-```
-
-## Cursor Extensions
-Manually install [Cursor](https://www.cursor.com/) and the command line extension.
-```
-./setup_cursor.sh
-```
-
-## dotfiles setup with Stow
+## Clone the repo into your home folder
 
 ```
 cd ~
-mv .zshrc .zshrc.ohmyzshdefault
-mv .zprofile .zprofile.default
-mkdir .config
 git clone git@github.com:cwsaylor/dotfiles.git
 cd dotfiles
-stow --dotfiles .
+./scripts/setup.sh
 ```
 
+## Setup Git and SSH keys
+
+Generate your ssh keys via the instructions here:
+
+https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
+Now set your git username and email. It's set to load your local username and email from a separate gitconfig file that is not checked into the repo.
+
+```
+git config --file "$HOME/.gitconfig.local" user.name  "Mona Lisa"
+git config --file "$HOME/.gitconfig.local" user.email  "overdrive@gibson.com"
+```
 ## Docker
 
 Install Docker Desktop
@@ -119,6 +67,23 @@ mkdir ~/jupyter
 docker compose up -d
 ```
 
+## Neovim
+
+I'm using the new built in package manager for neovim to manage plugins so the nightly needs to be installed.
+
+* Leader set to space
+* Leader + w - Write file
+* Leader + q - Quit
+* Leader + gb - Git blame line toggle
+* Leader + o - Oil file explorer
+* Leader + ff - Fuzzy find files
+* Leader + ce - Copilot enable
+* Leader + cd - Copilot disable
+* Leader + cs - Copilot status
+* Ctrl + l - Copilot suggestion accept
+* Ctrl + ] - Copilot next suggestion
+* Ctrl + \ - Copilot dismiss
+
 ## Vim
 
 I'm using vim-plug to install my vim plugins. vim-plug will be auto-installed on first run.
@@ -143,38 +108,6 @@ Run `:PlugInstall` in vim if you add more plugins.
 * space + s - Split below and open netrw
 * space + v - Split right and open netrw
 
-## Node Version Manager
-
-Run the latest install inscript here:
-https://github.com/nvm-sh/nvm
-
-```
-nvm install --lts
-```
-
-## NPM tools
-
-```
-npm install -g task-master-ai
-npm install -g @anthropic-ai/claude-code
-npm install -g @mermaid-js/mermaid-cli
-```
-
-## Ruby
-
-```
-brew install libyaml libssl@3
-git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
-rbenv install 3.4.4
-rbenv global 3.4.4
-gem install rails
-```
-
-## Deno
-
-curl -fsSL https://deno.land/install.sh | sh
-
 ## Flutter Development
 
 ```
@@ -185,10 +118,4 @@ Download flutter and install to ~/.flutter
 
 * https://flutter.dev/
 * https://developer.android.com/studio
-
-## Manual Installs
-
-* https://one.one.one.one/
-* https://www.techsmith.com/camtasia/
-* https://www.techsmith.com/snagit/
 

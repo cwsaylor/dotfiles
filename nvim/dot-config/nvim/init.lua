@@ -10,6 +10,8 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.swapfile = false
 vim.opt.termguicolors = true
+vim.opt.wrap = true
+vim.opt.linebreak = true
 vim.opt.signcolumn = "yes"
 
 -- Leader & keymaps

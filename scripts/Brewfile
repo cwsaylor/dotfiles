@@ -1,0 +1,71 @@
+tap "heroku/brew"
+tap "jesseduffield/lazygit"
+tap "cwsaylor/tap"
+
+brew "mas"
+
+# Mac Apps
+
+cask "chrome"
+cask "claude"
+cask "cursor"
+cask "docker-desktop"
+cask "github"
+cask "ghostty"
+cask "font-caskaydia-cove-nerd-font"
+cask "font-jetbrains-mono-nerd-font"
+cask "font-meslo-lg-nerd-font"
+cask "ngrok"
+cask "visual-studio-code"
+
+# Mac App Store
+
+mas "Amphetamine", id: 937984704
+mas "Color Picker", id: 1545870783
+mas "Magnet", id: 441258766
+mas "Numbers", id: 409203825
+mas "Slack", id: 803453959
+mas "Tailscale 2", 1475387142
+mas "UTM", id: 1538878817
+mas "Windows App", id: 1295203466
+mas "Xcode", id: 497799835
+
+# Terminal utilities
+
+brew "ast-grep"
+brew "bat"
+brew "btop"
+brew "eza"
+brew "fastfetch"
+brew "fd"
+brew "fzf"
+brew "ripgrep"
+brew "starship"
+brew "stow"
+brew "zoxide"
+
+# Development tools
+
+brew "awscli"
+brew "gh"
+brew "git"
+brew "gitmoni"
+brew "gnupg"
+brew "heroku"
+brew "lazygit"
+brew "libssl@3"
+brew "libyaml"
+brew "neovim"
+
+# Programming Languages
+
+brew "golang"
+brew "python@3.10"
+brew "python@3.11"
+brew "python@3.12"
+brew "python@3.13"
+brew "python@3.14"
+brew "rust"
+
+# Development libraries
+brew "libpq", link: true

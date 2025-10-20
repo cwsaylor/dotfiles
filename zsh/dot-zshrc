@@ -1,6 +1,7 @@
 ################################################################################
 # ZSH
 ################################################################################
+DISABLE_UPDATE_PROMPT=true
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME=""
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
@@ -125,8 +126,6 @@ alias pn="pnpm"
 
 alias py="python"
 
-alias update="claude update && cursor-agent update && brew update && brew upgrade && npm install -g @openai/codex && npm install -g @google/gemini-cli@latest && deno upgrade"
-
 if command -v eza &> /dev/null; then
   alias e="eza --icons"
   alias ea="eza --icons -a"
@@ -138,6 +137,29 @@ if command -v eza &> /dev/null; then
   alias e3="eza --icons -T --level=3"
   alias e4="eza --icons -T --level=4"
 fi
+
+################################################################################
+# Update function for installed tools
+################################################################################
+update_ruby() {
+  current_folder=$(pwd)
+  cd ~/.rbenv && \
+  git pull && \
+  cd ~/.rbenv/plugins/ruby-build && \
+  git pull && \
+  cd "$current_folder"
+}
+
+update() {
+  brew update && \
+  brew upgrade && \
+  npm install -g @openai/codex && \
+  npm install -g @google/gemini-cli@latest && \
+  claude update && \
+  cursor-agent update && \
+  deno upgrade && \
+  bun upgrade
+}
 
 ################################################################################
 # Android studio and Flutter
