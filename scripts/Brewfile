@@ -6,10 +6,8 @@ brew "mas"
 
 # Mac Apps
 
-cask "chrome"
 cask "claude"
 cask "cursor"
-cask "docker-desktop"
 cask "github"
 cask "ghostty"
 cask "font-caskaydia-cove-nerd-font"
