@@ -1,44 +1,78 @@
-let data_dir = '~/.vim'
-if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+" ------- Leader first -------
+let mapleader = ' '
+nnoremap <Space> <Nop>
+
+" Use HTTPS without prompts for vim-plug clones
+let g:plug_url_format = 'https://git::@github.com/%s.git'
+
+" ------- Bootstrap vim-plug (one-time on first run) -------
+let s:data_dir = expand('~/.vim')
+if empty(glob(s:data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo ' . s:data_dir . '/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  augroup PlugBootstrap | autocmd!
+    autocmd VimEnter * ++once PlugInstall --sync | source $MYVIMRC
+  augroup END
 endif
 
-set backupdir=/tmp
-set noswapfile
+" ------- Safer file persistence -------
+set swapfile
+set directory=~/.vim/swap//,/tmp//
+set backup
+set backupdir=~/.vim/backup//,/tmp//
+set undofile
+set undodir=~/.vim/undo//,/tmp//
+
+" ------- UI / editing -------
 set number
-set numberwidth=3
+set numberwidth=4
 set tabstop=2
 set shiftwidth=2
-set expandtab
 set softtabstop=2
+set expandtab
+set splitbelow
+set splitright
+set noautochdir
 
+" Show hidden characters + toggle
+" set list " Turn on hidden characters by default
+set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»
+nnoremap <leader>L :set list!<CR>
+
+" ------- Plugins -------
 call plug#begin()
-Plug 'bling/vim-airline'
-Plug 'kien/ctrlp.vim'
+Plug 'vim-airline/vim-airline'
+" 🔎 fzf (replaces ctrlp)
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
 Plug 'navicore/vissort.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-sleuth'
+" Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'vim-test/vim-test'
-Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
-Plug 'maxmellon/vim-jsx-pretty'
+
+" One-stop language pack
+Plug 'sheerun/vim-polyglot'
+
+" Helpers
+Plug 'psf/black'         " :Black formatter (needs `black`)
+Plug 'tpope/vim-endwise' " auto-insert `end` in Ruby blocks
+" Optional: Plug 'dense-analysis/ale'
 call plug#end()
 
-nnoremap <SPACE> <Nop>
-let mapleader=" "
-
-" Allow writing and quitting with a capital if you're shift finger is too slow
+" ------- Commands -------
 command! W w
 command! Q quit
 
-" Allow ctrl + s to save
-nnoremap <silent><C-s> :update<CR>
-inoremap <silent><C-s> <Esc>:update<CR>
+" ------- Save / close / test mappings -------
+nnoremap <silent> <leader>w :update<CR>  " Save with Leader+w
+nnoremap <leader>q <C-w>c                " Close window
+
+" fzf mappings
+nnoremap <silent> <leader>ff :Files<CR>
 
 " vim-test
 nmap <silent> <leader>t :TestNearest<CR>
@@ -47,49 +81,42 @@ nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 
-" Toggle netrw file explorer
-" nnoremap <C-n> :Lexplore<CR>
-" Toggle netrw explorer in same pane
+" ------- Netrw (file explorer) -------
 nnoremap <C-n> :Explore<CR>
-
-" Toggle previous buffer
 nnoremap <C-b> :b#<CR>
-
-" Make moving between splits a bit easier 
-nnoremap <C-j> <C-w><C-j>
-nnoremap <C-k> <C-w><C-k>
-nnoremap <C-l> <C-w><C-l>
-nnoremap <C-h> <C-w><C-h>
-nnoremap <C-c> <C-w><C-c>
-
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_sort_sequence = '[\/]$,*'
+let g:netrw_browse_split = 0
 nmap <silent> <leader>s <C-w><C-s>:Explore<CR>
 nmap <silent> <leader>v <C-w><C-v>:Explore<CR>
 
-set splitbelow
-set splitright
+" ------- Split navigation (keep <C-l> redraw) -------
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l<C-l>
 
-" absolute width of netrw window, use with :Lexplore
-" let g:netrw_winsize = -28
+" ------- Filetype niceties -------
+" Polyglot handles JS/TS/TSX/JSX/Python/Ruby
 
-" do not display info on the top of window
-let g:netrw_banner = 0
+" Python: format on save with Black (won't error if Black isn't available yet)
+augroup python_fmt | autocmd!
+  autocmd FileType python setlocal colorcolumn=88
+  autocmd BufWritePre *.py silent! execute ':Black'
+augroup END
 
-" tree-view
-let g:netrw_liststyle = 3
+" Ruby ergonomics
+augroup ruby_ft | autocmd!
+  autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
+augroup END
 
-" sort is affecting only: directories on the top, files below
-let g:netrw_sort_sequence = '[\/]$,*'
+" Optional ALE config
+" let g:ale_fix_on_save = 1
+" let g:ale_linters = { 'python': ['ruff', 'mypy'], 'ruby': ['rubocop'] }
+" let g:ale_fixers  = { 'python': ['black', 'isort'], 'ruby': ['rubocop'] }
 
-" use the previous window to open file
-let g:netrw_browse_split = 0
-
-" Change directory to the current buffer when opening files.
-set autochdir
-
-" Set per directory vimrc settings
+" ------- Per-project overrides -------
 if filereadable(".vimrc_proj")
-    so .vimrc_proj
+  source .vimrc_proj
 endif
-
-" Show fancy hidden characters
-:set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»

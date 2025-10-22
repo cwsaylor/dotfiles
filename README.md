@@ -92,21 +92,20 @@ Run `:PlugInstall` in vim if you add more plugins.
 ### Custom Vim Shortcuts
 
 * Leader is set to space
-* Ctrl + n - Toggle Explorer
-* ctrl + p - Fuzzy find files
-* ctrl + b - Toggle between last two open buffers
-* ctrl + j - Move to split down
-* ctrl + k - Move to split up
-* ctrl + l - Move to split right
-* ctrl + h - Move to split left
-* ctrl + c - Close buffer
-* space + t - Run nearest test
-* space + T - Run test file
-* space + a - Run test suite
-* space + l - Run last test 
-* space + g - Switch to last test file
-* space + s - Split below and open netrw
-* space + v - Split right and open netrw
+* Ctrl + n — Toggle Explorer (netrw) in the same pane
+* Ctrl + b — Toggle between last two open buffers
+* Ctrl + h/j/k/l — Move to split left/down/up/right (Ctrl + l also redraws)
+* space + w — Save file
+* space + ff — Fuzzy find files (fzf :Files)
+* space + q — Close current split/window
+* space + t — Run nearest test
+* space + T — Run test file
+* space + a — Run test suite
+* space + l — Run last test
+* space + g — Switch to last test file
+* space + s — Split below and open Explorer
+* space + v — Split right and open Explorer
+* space + L — Toggle display of invisible characters
 
 ## Flutter Development
 
