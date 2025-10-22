@@ -6,4 +6,4 @@ brew install stow
 mv .zshrc .zshrc.backup
 mv .zprofile .zprofile.backup
 
-stow --dotfiles .
+stow --dotfiles --no-folding .
