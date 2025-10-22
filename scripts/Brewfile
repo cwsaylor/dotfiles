@@ -2,10 +2,6 @@ tap "heroku/brew"
 tap "jesseduffield/lazygit"
 tap "cwsaylor/tap"
 
-brew "mas"
-
-# Mac Apps
-
 cask "claude"
 cask "cursor"
 cask "github"
@@ -15,18 +11,6 @@ cask "font-jetbrains-mono-nerd-font"
 cask "font-meslo-lg-nerd-font"
 cask "ngrok"
 cask "visual-studio-code"
-
-# Mac App Store
-
-mas "Amphetamine", id: 937984704
-mas "Color Picker", id: 1545870783
-mas "Magnet", id: 441258766
-mas "Numbers", id: 409203825
-mas "Slack", id: 803453959
-mas "Tailscale 2", 1475387142
-mas "UTM", id: 1538878817
-mas "Windows App", id: 1295203466
-mas "Xcode", id: 497799835
 
 # Terminal utilities
 
