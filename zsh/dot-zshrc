@@ -7,8 +7,6 @@ ZSH_THEME=""
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
-unalias gk
-
 ################################################################################
 # Set tab title
 ################################################################################
@@ -88,6 +86,8 @@ fi
 ################################################################################
 # Aliases
 ################################################################################
+unalias gk
+
 alias claude="/Users/chris/.claude/local/claude"
 
 alias weather="curl wttr.in/95492\?u"
@@ -129,15 +129,20 @@ alias pn="pnpm"
 alias py="python"
 
 if command -v eza &> /dev/null; then
-  alias e="eza --icons"
-  alias ea="eza --icons -a"
-  alias el="eza --icons -l -h"
-  alias ela="eza --icons -l -a -h"
+  #alias e="eza --icons"
+  #alias ea="eza --icons -a"
+  #alias el="eza --icons -l -h"
+  alias e="eza --icons -l -a -h"
+  alias esc="eza --icons -l -a -h --sort=created"
+  alias esm="eza --icons -l -a -h --sort=time"
+  alias esa="eza --icons -l -a -h --sort=accessed"
+  alias ess="eza --icons -l -a -h --sort=size"
+  alias essts="eza --icons -l -a -h --sort=size --total-size"
   alias et="eza --icons -T"
-  alias e1="eza --icons -T --level=1"
-  alias e2="eza --icons -T --level=2"
-  alias e3="eza --icons -T --level=3"
-  alias e4="eza --icons -T --level=4"
+  alias et1="eza --icons -T --level=1"
+  alias et2="eza --icons -T --level=2"
+  alias et3="eza --icons -T --level=3"
+  alias et4="eza --icons -T --level=4"
 fi
 
 ################################################################################
