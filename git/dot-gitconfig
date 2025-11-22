@@ -16,6 +16,7 @@
 	co = checkout
 	dc = diff --cached
 	d = diff
+	pom = push origin main
 [pull]
 	rebase = true
 [include]
