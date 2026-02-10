@@ -1,16 +1,12 @@
 tap "heroku/brew"
 tap "jesseduffield/lazygit"
 tap "cwsaylor/tap"
-tap "benjiwolff/neovim-nightly"
 
 cask "claude"
 cask "cursor"
 cask "github"
-cask "ghostty"
-cask "font-caskaydia-cove-nerd-font"
 cask "font-jetbrains-mono-nerd-font"
-cask "font-meslo-lg-nerd-font"
-cask "neovim-nightly"
+cask "iterm2"
 cask "ngrok"
 cask "visual-studio-code"
 
@@ -33,13 +29,10 @@ brew "zoxide"
 brew "awscli"
 brew "gh"
 brew "git"
-brew "gitkraken-cli"
 brew "gitmoni"
 brew "gnupg"
 brew "heroku"
 brew "lazygit"
-brew "libssl@3"
-brew "libyaml"
 
 # Programming Languages
 
@@ -53,3 +46,5 @@ brew "rust"
 
 # Development libraries
 brew "libpq", link: true
+brew "libssl@3"
+brew "libyaml"
