@@ -33,7 +33,6 @@ fi
 # Prompt
 ################################################################################
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
-  # eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/chris.toml)"
   eval "$(starship init zsh)"
 fi
 
@@ -95,32 +94,12 @@ if command -v claude &> /dev/null; then
   alias cl="claude --dangerously-skip-permissions"
 fi
 
-if command -v cursor &> /dev/null; then
-  alias cu="cursor"
-fi
-
-if command -v cursor-agent &> /dev/null; then
-  alias ca="cursor-agent"
-fi
-
 if command -v gitmoni &> /dev/null; then
   alias gim="gitmoni"
 fi
 
-if command -v kubectl &> /dev/null; then
-  alias k="kubectl"
-fi
-
 if command -v lazygit &> /dev/null; then
   alias lg="lazygit"
-fi
-
-if command -v nvim  &> /dev/null; then
-  alias nv="nvim"
-fi
-
-if command -v npm &> /dev/null; then
-  alias np="npm"
 fi
 
 alias pn="pnpm"
@@ -128,9 +107,6 @@ alias pn="pnpm"
 alias py="python"
 
 if command -v eza &> /dev/null; then
-  #alias e="eza --icons"
-  #alias ea="eza --icons -a"
-  #alias el="eza --icons -l -h"
   alias e="eza --icons -l -a -h"
   alias esc="eza --icons -l -a -h -t created --sort=created"
   alias esm="eza --icons -l -a -h -t modified --sort=modified"
@@ -162,23 +138,18 @@ update() {
   npm install -g @openai/codex && \
   npm install -g @google/gemini-cli@latest && \
   claude update && \
-  cursor-agent update && \
   deno upgrade && \
   bun upgrade
 }
 
 ################################################################################
-# Android studio and Flutter
+# Android studio
 ################################################################################
 if [[ -d "$HOME/Library/Android/sdk" ]]; then
   export ANDROID_HOME="$HOME/Library/Android/sdk"
   export PATH="$ANDROID_HOME/tools:$PATH"
   export PATH="$ANDROID_HOME/tools/bin:$PATH"
   export PATH="$ANDROID_HOME/platform-tools:$PATH"
-fi
-
-if [[ -d "$HOME/development/flutter/bin" ]]; then
-  export PATH="$HOME/development/flutter/bin:$PATH"
 fi
 
 ################################################################################
