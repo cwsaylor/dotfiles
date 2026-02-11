@@ -17,10 +17,13 @@ brew "btop"
 brew "eza"
 brew "fastfetch"
 brew "fd"
+brew "ffmpeg"
 brew "fzf"
 brew "ripgrep"
 brew "starship"
 brew "stow"
+brew "tree"
+brew "yt-dlp"
 brew "zoxide"
 
 # Development tools
@@ -32,11 +35,11 @@ brew "gitmoni"
 brew "gnupg"
 brew "heroku"
 brew "lazygit"
+brew "supabase"
 
 # Programming Languages
 
 brew "golang"
-brew "python@3.10"
 brew "python@3.11"
 brew "python@3.12"
 brew "python@3.13"
