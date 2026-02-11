@@ -24,7 +24,7 @@ _darcs
 
 .DS_Store
 
-scripts/*
 README.md
 docker/*
 Brewfile
+setup.sh

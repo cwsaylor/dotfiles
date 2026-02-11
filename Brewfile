@@ -3,7 +3,6 @@ tap "jesseduffield/lazygit"
 tap "cwsaylor/tap"
 
 cask "claude"
-cask "cursor"
 cask "github"
 cask "font-jetbrains-mono-nerd-font"
 cask "iterm2"
