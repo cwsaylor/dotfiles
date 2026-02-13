@@ -104,6 +104,10 @@ fi
 
 alias pn="pnpm"
 
+alias n="npm"
+
+alias nr="npm run"
+
 alias py="python"
 
 if command -v eza &> /dev/null; then
