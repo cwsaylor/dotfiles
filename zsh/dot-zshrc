@@ -94,6 +94,10 @@ if command -v claude &> /dev/null; then
   alias cl="claude --dangerously-skip-permissions"
 fi
 
+if command -v claude &> /dev/null; then
+  alias c="claude"
+fi
+
 if command -v gitmoni &> /dev/null; then
   alias gim="gitmoni"
 fi
@@ -107,8 +111,6 @@ alias pn="pnpm"
 alias n="npm"
 
 alias nr="npm run"
-
-alias py="python"
 
 if command -v eza &> /dev/null; then
   alias e="eza --icons -l -a -h"
