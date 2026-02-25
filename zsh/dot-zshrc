@@ -87,7 +87,6 @@ fi
 ################################################################################
 unalias gk
 
-
 alias weather="curl wttr.in/95492\?u"
 
 if command -v claude &> /dev/null; then
@@ -111,6 +110,8 @@ alias pn="pnpm"
 alias n="npm"
 
 alias nr="npm run"
+
+alias nv="nvim"
 
 if command -v eza &> /dev/null; then
   alias e="eza --icons -l -a -h"
@@ -224,7 +225,9 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 ################################################################################
-# fastfetch
+# opening terminal app
 ################################################################################
-fastfetch
+# fastfetch
+cbonsai -p
+
 
