@@ -10,6 +10,9 @@ cask "iterm2"
 cask "ngrok"
 cask "visual-studio-code"
 
+# Fun
+brew "cbonsai"
+
 # Terminal utilities
 
 brew "ast-grep"
@@ -37,6 +40,7 @@ brew "gnupg"
 brew "heroku"
 brew "lazygit"
 brew "supabase"
+brew "uv"
 
 # Programming Languages
 
