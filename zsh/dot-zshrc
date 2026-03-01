@@ -62,6 +62,10 @@ if [[ -d "/opt/homebrew/opt/libpq" ]]; then
   export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig"
 fi
 
+if [[ -d "/opt/homebrew/opt/postgresql@18/bin" ]]; then
+  export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"
+fi
+
 ################################################################################
 # fzf
 ################################################################################
