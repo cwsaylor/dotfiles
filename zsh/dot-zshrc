@@ -126,7 +126,7 @@ if command -v eza &> /dev/null; then
   alias elam="eza --icons -l -a -h -t modified --sort=modified"
   alias elaa="eza --icons -l -a -h -t accessed --sort=accessed"
   alias elas="eza --icons -l -a -h --sort=size"
-  alias elast"eza --icons -l -a -h --sort=size --total-size"
+  alias elast="eza --icons -l -a -h --sort=size --total-size"
   alias et="eza --icons -T"
   alias et1="eza --icons -T --level=1"
   alias et2="eza --icons -T --level=2"
