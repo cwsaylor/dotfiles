@@ -1,8 +1,8 @@
 {
-    "workbench.colorTheme": "Monokai Pro (Filter Ristretto)",
+    "workbench.colorTheme": "Catppuccin Frappé",
     "editor.minimap.enabled": false,
     "editor.fontFamily": "'JetBrainsMono Nerd Font Mono', Menlo, Monaco, 'Courier New', monospace",
     "editor.fontSize": 14,
-    "workbench.iconTheme": "Monokai Pro (Filter Ristretto) Icons",
+    "workbench.iconTheme": "Catppuccin Frappé Icons",
     "github.copilot.nextEditSuggestions.enabled": true
 }

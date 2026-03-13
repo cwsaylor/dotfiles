@@ -79,20 +79,28 @@ require("lazy").setup({
 
   -- Colorscheme
   {
-    "loctvl842/monokai-pro.nvim",
+    "catppuccin/nvim",
+    name = "catppuccin",
     priority = 1000,
     config = function()
-      require("monokai-pro").setup({
-        filter          = "ristretto",
-        terminal_colors = true,
+      require("catppuccin").setup({
+        flavour = "frappe",
+        term_colors = true,
         styles = {
-          comment   = { italic = true },
-          keyword   = { italic = true },
-          parameter = { italic = true },
+          comments = { "italic" },
+          keywords = { "italic" },
         },
-        background_clear = { "telescope" },
+        integrations = {
+          cmp = true,
+          gitsigns = true,
+          telescope = true,
+          treesitter = true,
+          which_key = true,
+          fidget = true,
+          mason = true,
+        },
       })
-      vim.cmd.colorscheme("monokai-pro")
+      vim.cmd.colorscheme("catppuccin")
     end,
   },
 
@@ -100,7 +108,7 @@ require("lazy").setup({
   {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = { options = { theme = "monokai-pro" } },
+    opts = { options = { theme = "catppuccin" } },
   },
 
   -- Fuzzy finder
