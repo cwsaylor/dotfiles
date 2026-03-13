@@ -1,0 +1,7 @@
+font-family = JetBrainsMono Nerd Font Mono
+font-size = 14
+maximize = true
+keybind = shift+enter=text:\x1b\r
+bell-features = audio
+scrollback-limit = 20000
+
