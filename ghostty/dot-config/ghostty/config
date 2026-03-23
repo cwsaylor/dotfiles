@@ -4,4 +4,5 @@ maximize = true
 keybind = shift+enter=text:\x1b\r
 bell-features = audio
 scrollback-limit = 20000
+theme = Catppuccin Frappe
 
