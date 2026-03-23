@@ -151,9 +151,10 @@ update() {
   brew upgrade && \
   npm install -g @openai/codex && \
   npm install -g @google/gemini-cli@latest && \
-  claude update && \
   deno upgrade && \
-  bun upgrade
+  bun upgrade && \
+  opencode upgrade && \
+  claude update
 }
 
 ################################################################################
@@ -238,3 +239,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 cbonsai -p
 
 
+
+# opencode
+export PATH=/Users/chris/.opencode/bin:$PATH
