@@ -2,6 +2,8 @@
 let mapleader = ' '
 nnoremap <Space> <Nop>
 
+set modelines=5
+
 " Use HTTPS without prompts for vim-plug clones
 let g:plug_url_format = 'https://git::@github.com/%s.git'
 
@@ -120,3 +122,30 @@ augroup END
 if filereadable(".vimrc_proj")
   source .vimrc_proj
 endif
+
+" ------- Prose / fiction writing mode -------
+let g:prose_mode = 0
+function! ProseToggle()
+  if g:prose_mode
+    " Revert to code defaults
+    setlocal number list nowrap nolinebreak nospell
+    setlocal scrolloff=5
+    setlocal showbreak=
+    silent! nunmap <buffer> j
+    silent! nunmap <buffer> k
+    let g:prose_mode = 0
+    echo 'Prose mode OFF'
+  else
+    " Enter prose mode
+    setlocal nonumber nolist wrap linebreak spell spelllang=en_us
+    setlocal textwidth=0 wrapmargin=0
+    setlocal scrolloff=8
+    setlocal showbreak=↪\
+    nnoremap <buffer> j gj
+    nnoremap <buffer> k gk
+    let g:prose_mode = 1
+    echo 'Prose mode ON'
+  endif
+endfunction
+command! ProseMode call ProseToggle()
+nnoremap <leader>p :ProseMode<CR>
