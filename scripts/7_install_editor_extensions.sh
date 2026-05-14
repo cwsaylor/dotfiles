@@ -3,7 +3,9 @@ set -e
 
 # Array of extension IDs
 shared_extensions=(
+  bierner.markdown-mermaid
   bradlc.vscode-tailwindcss
+  catppuccin.catppuccin-vsc
   clemenspeters.format-json
   denoland.vscode-deno
   dsznajder.es7-react-js-snippets
