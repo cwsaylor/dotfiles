@@ -12,33 +12,45 @@ cask "visual-studio-code"
 
 # Fun
 brew "cbonsai"
+brew "figlet"
+brew "asciicinema"
 
 # Terminal utilities
 
 brew "ast-grep"
 brew "bat"
 brew "btop"
+brew "dos2unix"
+brew "exiftool"
 brew "eza"
 brew "fastfetch"
 brew "fd"
 brew "ffmpeg"
 brew "fzf"
+brew "mas"
 brew "ripgrep"
 brew "starship"
 brew "stow"
 brew "tree"
+brew "wget"
+brew "yazi"
 brew "yt-dlp"
 brew "zoxide"
 
 # Development tools
 
+brew "ansible"
 brew "awscli"
+brew "direnv"
+brew "doctl"
 brew "gh"
 brew "git"
 brew "gitmoni"
 brew "gnupg"
 brew "heroku"
 brew "lazygit"
+brew "lima"
+brew "resend"
 brew "supabase"
 brew "uv"
 
