@@ -39,11 +39,7 @@ fi
 ################################################################################
 # Set terminal editor
 ################################################################################
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='vim'
-fi
+export EDITOR='vim'
 
 ################################################################################
 # MySQL and PostgreSQL library config
@@ -72,7 +68,6 @@ fi
 if [[ -d "$HOME/.fzf" ]]; then
   export PATH=$PATH:$HOME/.fzf/bin
   source "$HOME/.fzf/shell/completion.zsh"
-  # source "$HOME/.fzf/shell/key-bindings.zsh"
   alias f="fzf"
 elif command -v fzf &> /dev/null; then
   source <(fzf --zsh)
@@ -94,11 +89,8 @@ unalias gk
 alias weather="curl wttr.in/95492\?u"
 
 if command -v claude &> /dev/null; then
-  alias cl="claude --dangerously-skip-permissions"
-fi
-
-if command -v claude &> /dev/null; then
   alias c="claude"
+  alias cl="claude --dangerously-skip-permissions"
 fi
 
 if command -v gitmoni &> /dev/null; then
@@ -114,8 +106,6 @@ alias pn="pnpm"
 alias n="npm"
 
 alias nr="npm run"
-
-alias nv="nvim"
 
 if command -v eza &> /dev/null; then
   alias e="eza"
@@ -218,7 +208,7 @@ fi
 ################################################################################
 # pnpm
 ################################################################################
-export PNPM_HOME="/Users/chris/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -227,7 +217,7 @@ esac
 ################################################################################
 # bun & completions
 ################################################################################
-[ -s "/Users/chris/.bun/_bun" ] && source "/Users/chris/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
@@ -245,7 +235,7 @@ fi
 ################################################################################
 
 if [[ -d "$HOME/.opencode/bin" ]]; then
-  export PATH=/Users/chris/.opencode/bin:$PATH
+  export PATH="$HOME/.opencode/bin:$PATH"
 fi
 
 ################################################################################
@@ -259,6 +249,5 @@ fi
 ################################################################################
 # opening terminal app
 ################################################################################
-# fastfetch
 cbonsai -p
 

@@ -8,7 +8,7 @@ This set of files includes dotfiles for GNU Stow, a Brewfile for installing appl
 cd ~
 git clone git@github.com:cwsaylor/dotfiles.git
 cd dotfiles
-./scripts/setup.sh
+./setup.sh
 ```
 
 ## Setup Git and SSH keys
@@ -66,23 +66,6 @@ docker build -t $DOCKER_USERNAME/jupyter_with_ruby .
 mkdir ~/jupyter
 docker compose up -d
 ```
-
-## Neovim
-
-I'm using the new built in package manager for neovim to manage plugins so the nightly needs to be installed.
-
-* Leader set to space
-* Leader + w - Write file
-* Leader + q - Quit
-* Leader + gb - Git blame line toggle
-* Leader + o - Oil file explorer
-* Leader + ff - Fuzzy find files
-* Leader + ce - Copilot enable
-* Leader + cd - Copilot disable
-* Leader + cs - Copilot status
-* Ctrl + l - Copilot suggestion accept
-* Ctrl + ] - Copilot next suggestion
-* Ctrl + \ - Copilot dismiss
 
 ## Vim
 

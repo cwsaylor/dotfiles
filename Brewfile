@@ -13,13 +13,12 @@ cask "visual-studio-code"
 # Fun
 brew "cbonsai"
 brew "figlet"
-brew "asciicinema"
+brew "asciinema"
 
 # Terminal utilities
 
 brew "ast-grep"
 brew "bat"
-brew "btop"
 brew "dos2unix"
 brew "exiftool"
 brew "eza"
@@ -52,7 +51,6 @@ brew "lazygit"
 brew "lima"
 brew "resend"
 brew "supabase"
-brew "uv"
 
 # Programming Languages
 
