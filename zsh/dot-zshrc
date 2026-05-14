@@ -149,7 +149,7 @@ update_ruby() {
 update() {
   brew update && \
   brew upgrade && \
-  npm install -g @openai/codex && \
+  codex update && \
   npm install -g @google/gemini-cli@latest && \
   deno upgrade && \
   bun upgrade && \
@@ -233,12 +233,32 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 ################################################################################
+# Rust Path
+################################################################################
+
+if [[ -f "$HOME/.cargo/env" ]]; then
+  . "$HOME/.cargo/env"
+fi
+
+################################################################################
+# OpenCode Path
+################################################################################
+
+if [[ -d "$HOME/.opencode/bin" ]]; then
+  export PATH=/Users/chris/.opencode/bin:$PATH
+fi
+
+################################################################################
+# Antigravity Path
+################################################################################
+
+if [[ -d "$HOME/.antigravity/antigravity/bin" ]]; then
+  export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
+fi
+
+################################################################################
 # opening terminal app
 ################################################################################
 # fastfetch
 cbonsai -p
 
-
-
-# opencode
-export PATH=/Users/chris/.opencode/bin:$PATH
