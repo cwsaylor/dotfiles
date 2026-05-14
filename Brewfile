@@ -13,10 +13,11 @@ cask "visual-studio-code"
 # Fun
 brew "cbonsai"
 brew "figlet"
-brew "asciinema"
+brew "lolcat"
 
 # Terminal utilities
 
+brew "asciinema"
 brew "ast-grep"
 brew "bat"
 brew "dos2unix"
