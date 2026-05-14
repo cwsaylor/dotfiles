@@ -157,7 +157,17 @@
       "Bash(pytest *)",
       "Bash(rspec *)",
       "Bash(playwright *)",
-      "Bash(cypress *)"
+      "Bash(cypress *)",
+      "Bash",
+      "Fetch",
+      "Update",
+      "mcp__playwright__browser_wait_for",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_click",
+      "mcp__playwright__browser_type",
+      "mcp__playwright__browser_evaluate",
+      "mcp__playwright__browser_close",
+      "Skill(keybindings-help)"
     ],
     "deny": [
       "Bash(sudo rm *)",
@@ -184,7 +194,20 @@
       "Bash(iptables *)",
       "Bash(ufw *)",
       "Bash(> /dev/*)"
-    ]
+    ],
+    "ask": [
+      "Bash(rm *)",
+      "Bash(* rm *)",
+      "Bash(*|rm *)",
+      "Bash(*;rm *)",
+      "Bash(*&&rm *)",
+      "Bash(rmdir *)",
+      "Bash(* rmdir *)",
+      "Bash(* -delete*)",
+      "Bash(shred *)",
+      "Bash(* shred *)"
+    ],
+    "defaultMode": "auto"
   },
   "statusLine": {
     "type": "command",
@@ -194,11 +217,26 @@
     "feature-dev@claude-plugins-official": true,
     "frontend-design@claude-plugins-official": true,
     "playwright@claude-plugins-official": true,
-    "ruby-lsp@claude-plugins-official": true
+    "ruby-lsp@claude-plugins-official": true,
+    "codex@openai-codex": true
   },
-  "voiceEnabled": true,
+  "extraKnownMarketplaces": {
+    "openai-codex": {
+      "source": {
+        "source": "github",
+        "repo": "openai/codex-plugin-cc"
+      }
+    }
+  },
+  "effortLevel": "xhigh",
   "skipDangerousModePermissionPrompt": true,
+  "preferredNotifChannel": "iterm2",
+  "remoteControlAtStartup": true,
+  "agentPushNotifEnabled": true,
+  "skipAutoPermissionPrompt": true,
+  "voiceEnabled": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754070228247
-  }
+  },
+  "tui": "fullscreen"
 }
