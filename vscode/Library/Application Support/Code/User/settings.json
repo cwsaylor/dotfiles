@@ -4,5 +4,8 @@
     "editor.fontFamily": "'JetBrainsMono Nerd Font Mono', Menlo, Monaco, 'Courier New', monospace",
     "editor.fontSize": 14,
     "workbench.iconTheme": "Catppuccin Frappé Icons",
-    "github.copilot.nextEditSuggestions.enabled": true
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }
