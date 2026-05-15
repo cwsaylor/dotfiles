@@ -9,6 +9,7 @@
       "WebSearch",
       "WebFetch",
       "Bash",
+      "Bash(pnpm update:*)",
       "Fetch",
       "mcp__playwright__browser_wait_for",
       "mcp__playwright__browser_navigate",
