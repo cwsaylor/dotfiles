@@ -1,0 +1,4 @@
+exclude-newer = "7 days"
+
+[audit]
+malware-check = true

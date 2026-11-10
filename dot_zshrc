@@ -1,0 +1,52 @@
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+FPATH="$(brew --prefix)/share/zsh/site-functions:$FPATH"
+autoload -Uz compinit && compinit
+
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey '^[[A' up-line-or-beginning-search
+bindkey '^[OA' up-line-or-beginning-search
+bindkey '^[[B' down-line-or-beginning-search
+bindkey '^[OB' down-line-or-beginning-search
+
+# history
+HISTSIZE=50000; SAVEHIST=50000
+setopt share_history hist_ignore_dups hist_ignore_space
+
+if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
+  eval "$(starship init zsh)"
+fi
+
+eval "$(mise activate zsh)"
+eval "$(zoxide init zsh)"
+source <(fzf --zsh)
+
+if command -v eza &> /dev/null; then
+  alias e="eza"
+  alias ea="eza -a"
+  alias el="eza --icons -l -h"
+  alias ela="eza --icons -l -a -h"
+  alias elac="eza --icons -l -a -h -t created --sort=created"
+  alias elam="eza --icons -l -a -h -t modified --sort=modified"
+  alias elaa="eza --icons -l -a -h -t accessed --sort=accessed"
+  alias elas="eza --icons -l -a -h --sort=size"
+  alias elast="eza --icons -l -a -h --sort=size --total-size"
+  alias et="eza --icons -T"
+  alias et1="eza --icons -T --level=1"
+  alias et2="eza --icons -T --level=2"
+  alias et3="eza --icons -T --level=3"
+  alias et4="eza --icons -T --level=4"
+fi
+
+export PATH="$HOME/.local/bin:$PATH"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/chris/.lmstudio/bin"
+# End of LM Studio CLI section
+
+export EDITOR="/usr/bin/vim"
+
+source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"  # keep last

@@ -1,0 +1,10 @@
+# ~/.config/mise/config.toml
+[tools]
+node = ["26", "24"]
+pnpm = "12"
+python = ["3.14", "3.12"]
+
+[settings]
+idiomatic_version_file_enable_tools = ["node", "python"]  # read .nvmrc / .node-version / .python-version
+minimum_release_age = "3d"                                # don't install tool versions younger than 3 days
+ignored_config_paths = ["~/.local/share/chezmoi"]

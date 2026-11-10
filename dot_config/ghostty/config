@@ -1,0 +1,20 @@
+theme = Catppuccin Frappe
+font-family = JetBrainsMono Nerd Font
+font-size = 13
+auto-update = check
+auto-update-channel = stable
+keybind = performable:cmd+c=copy_to_clipboard:plain
+shell-integration-features = ssh-env,ssh-terminfo
+macos-option-as-alt = true
+
+# restore windows and tabs on relaunch
+window-save-state = always
+
+# nice when writing prose
+mouse-hide-while-typing = true
+
+# tabs live in the titlebar, less chrome
+macos-titlebar-style = tabs
+
+# only if you don't want JetBrains Mono's ligatures
+font-feature = -calt, -liga

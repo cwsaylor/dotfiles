@@ -1,0 +1,62 @@
+# ~/.gitconfig — managed by chezmoi
+[init]
+	defaultBranch = main
+
+[core]
+	pager = delta
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate = true
+	side-by-side = true
+
+[pull]
+	rebase = true
+
+[push]
+	autoSetupRemote = true
+
+[fetch]
+	prune = true
+	pruneTags = true
+
+[rebase]
+	autoStash = true
+	autoSquash = true
+	updateRefs = true
+
+[rerere]
+	enabled = true
+
+[merge]
+	conflictStyle = zdiff3
+
+[diff]
+	algorithm = histogram
+	colorMoved = plain
+
+[branch]
+	sort = -committerdate
+
+[commit]
+	verbose = true
+
+[help]
+	autocorrect = prompt
+
+[alias]
+	s = status
+	st = status
+	c = commit
+	sw = switch
+	br = branch
+	co = checkout
+	d = diff
+	dc = diff --cached
+	pom = push origin main
+
+[user]
+	name = {{ .name }}
+	email = {{ .email }}

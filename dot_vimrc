@@ -1,0 +1,168 @@
+" ~/.vimrc — managed by chezmoi
+" Purpose: writing text/markdown, quick looks at code. Fast startup, few plugins.
+set encoding=utf-8
+scriptencoding utf-8
+
+" ------- Leader first -------
+let mapleader = ' '
+nnoremap <Space> <Nop>
+
+" ------- Vim's own sane defaults (replaces vim-sensible) -------
+" ruler, showcmd, wildmenu, incsearch, scrolloff=5, backspace, syntax on,
+" filetype plugin indent on, jump to last cursor position, matchit, etc.
+unlet! skip_defaults_vim
+source $VIMRUNTIME/defaults.vim
+
+" ------- Built-in optional packages (ship with Vim 9.1, zero startup cost) -------
+silent! packadd! comment       " gcc / gc{motion}  (replaces vim-commentary)
+silent! packadd! editorconfig  " honor .editorconfig when peeking at repos
+silent! packadd! hlyank        " briefly highlight yanked text
+
+" ------- Bootstrap vim-plug (one-time on first run) -------
+let g:plug_url_format = 'https://git::@github.com/%s.git'
+let s:data_dir = expand('~/.vim')
+if empty(glob(s:data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo ' . s:data_dir . '/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  augroup PlugBootstrap | autocmd!
+    autocmd VimEnter * ++once PlugInstall --sync | source $MYVIMRC
+  augroup END
+endif
+
+" ------- Plugins (deliberately few) -------
+call plug#begin()
+Plug '/opt/homebrew/opt/fzf'   " Homebrew's fzf already ships the Vim plugin
+Plug 'junegunn/fzf.vim'        " :Files :Rg :Buffers
+Plug 'tpope/vim-surround'      " cs"' ysiw* — handy for prose and markdown
+call plug#end()
+
+" ------- Safer file persistence -------
+for s:dir in ['swap', 'backup', 'undo', 'spell']
+  silent! call mkdir(s:data_dir . '/' . s:dir, 'p')
+endfor
+set swapfile   directory=~/.vim/swap//,/tmp//
+set backup     backupdir=~/.vim/backup//,/tmp//
+set undofile   undodir=~/.vim/undo//,/tmp//
+set spellfile=~/.vim/spell/en.utf-8.add
+
+" ------- UI / editing -------
+set background=dark          " default colorscheme follows Ghostty's palette
+set hidden                   " switch buffers without saving first
+set number numberwidth=4
+set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+set splitbelow splitright
+set ignorecase smartcase
+set hlsearch
+set nojoinspaces             " one space after a period when joining lines
+set breakindent              " wrapped lines keep their indent (markdown lists)
+set wildmode=longest:full,full wildignorecase
+set shortmess+=I
+set belloff=all
+set mouse=                   " plain drag-select copies to the terminal clipboard
+if has('clipboard')
+  set clipboard^=unnamed     " y / p use the macOS clipboard
+endif
+
+" Spelling
+set spelllang=en_us
+set spelloptions=camel       " don't flag camelCase identifiers in notes
+
+" Statusline (replaces vim-airline)
+function! ProseStatus() abort
+  return get(b:, 'prose_mode', 0) ? wordcount().words . ' words  ' : ''
+endfunction
+set laststatus=2
+let &statusline = ' %f %m%r%h%w%=%{ProseStatus()}%y  %l:%c  %p%% '
+
+" Show hidden characters + toggle
+set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»
+nnoremap <silent> <leader>L :set list!<CR>
+
+" ------- Markdown -------
+let g:markdown_recommended_style = 0   " keep 2-space indents instead of forced 4
+" Each language here is loaded when a markdown file opens, so keep the list short.
+let g:markdown_fenced_languages = [
+      \ 'ts=typescript', 'typescript', 'tsx=typescriptreact',
+      \ 'js=javascript', 'javascript', 'swift', 'python',
+      \ 'sh', 'bash=sh', 'zsh', 'json', 'yaml', 'toml', 'sql',
+      \ ]
+augroup markdown_ft | autocmd!
+  " Enter / o continue list bullets and quotes
+  autocmd FileType markdown setlocal formatoptions+=ro
+augroup END
+
+" ------- Prose mode (auto for markdown/text, <leader>p to toggle anywhere) -------
+function! s:ProseOn() abort
+  setlocal nonumber nolist wrap linebreak
+  setlocal textwidth=0 wrapmargin=0
+  setlocal spell
+  setlocal scrolloff=8
+  let &l:showbreak = '↪ '
+  nnoremap <buffer> j gj
+  nnoremap <buffer> k gk
+  nnoremap <buffer> 0 g0
+  nnoremap <buffer> $ g$
+  let b:prose_mode = 1
+endfunction
+
+function! s:ProseOff() abort
+  setlocal number list< nowrap nolinebreak nospell
+  setlocal textwidth< scrolloff<
+  setlocal showbreak=
+  silent! nunmap <buffer> j
+  silent! nunmap <buffer> k
+  silent! nunmap <buffer> 0
+  silent! nunmap <buffer> $
+  let b:prose_mode = 0
+endfunction
+
+function! ProseToggle() abort
+  if get(b:, 'prose_mode', 0)
+    call s:ProseOff() | echo 'Prose mode OFF'
+  else
+    call s:ProseOn()  | echo 'Prose mode ON'
+  endif
+endfunction
+command! ProseMode call ProseToggle()
+nnoremap <silent> <leader>p :ProseMode<CR>
+
+augroup prose_ft | autocmd!
+  autocmd FileType markdown,text call s:ProseOn()
+  autocmd FileType gitcommit setlocal spell
+augroup END
+
+" ------- Commands -------
+command! W w
+command! Q quit
+
+" ------- Mappings -------
+" (Vim treats a trailing " on a map line as part of the mapping, so comments
+"  live on their own lines here.)
+
+" Save / close
+nnoremap <silent> <leader>w :update<CR>
+nnoremap <silent> <leader>q <C-w>c
+
+" Clear search highlight
+nnoremap <silent> <leader>/ :nohlsearch<CR>
+
+" fzf
+nnoremap <silent> <leader>ff :Files<CR>
+nnoremap <silent> <leader>fg :Rg<CR>
+nnoremap <silent> <leader>fb :Buffers<CR>
+
+" Netrw (file explorer)
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_sort_sequence = '[\/]$,*'
+let g:netrw_browse_split = 0
+nnoremap <silent> <C-n> :Explore<CR>
+nnoremap <silent> <C-b> :b#<CR>
+nnoremap <silent> <leader>s <C-w><C-s>:Explore<CR>
+nnoremap <silent> <leader>v <C-w><C-v>:Explore<CR>
+
+" Split navigation (keep <C-l> redraw)
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l<C-l>
+
