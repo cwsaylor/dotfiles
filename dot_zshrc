@@ -23,6 +23,8 @@ eval "$(mise activate zsh)"
 eval "$(zoxide init zsh)"
 source <(fzf --zsh)
 
+export EDITOR="/usr/bin/vim"
+
 if command -v eza &> /dev/null; then
   alias e="eza --icons -l -a -h"
   alias elac="eza --icons -l -a -h -t created --sort=created"
@@ -41,13 +43,33 @@ if command -v chezmoi &> /dev/null; then
   alias cm="chezmoi"
 fi
 
+if command -v lazygit &> /dev/null; then
+  alias lg="lazygit"
+fi
+
 export PATH="$HOME/.local/bin:$PATH"
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/chris/.lmstudio/bin"
 # End of LM Studio CLI section
 
-export EDITOR="/usr/bin/vim"
+if [[ -d "/opt/homebrew/opt/mysql-client" ]]; then
+  export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+  export LDFLAGS="-L/opt/homebrew/opt/mysql-client/lib"
+  export CPPFLAGS="-I/opt/homebrew/opt/mysql-client/include"
+  export PKG_CONFIG_PATH="/opt/homebrew/opt/mysql-client/lib/pkgconfig"
+fi
+
+if [[ -d "/opt/homebrew/opt/libpq" ]]; then
+  export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+  export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
+  export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
+  export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig"
+fi
+
+if [[ -d "/opt/homebrew/opt/postgresql@18/bin" ]]; then
+  export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"
+fi
 
 source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"  # keep last
