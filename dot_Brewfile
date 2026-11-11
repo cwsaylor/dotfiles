@@ -1,0 +1,74 @@
+# Tap
+tap "getsentry/xcodebuildmcp"
+
+# Engineering
+brew "ansible"
+brew "chezmoi"
+brew "difftastic"
+brew "gh"
+brew "git"
+brew "git-delta"
+brew "lazygit"
+brew "mise"
+brew "uv"
+
+# Shell
+brew "asciinema"
+brew "ast-grep"
+brew "bat"
+brew "dos2unix"
+brew "exiftool"
+brew "eza"
+brew "fd"
+brew "fzf"
+brew "jq"
+brew "neovim"
+brew "ripgrep"
+brew "starship"
+brew "tlrc"
+brew "tree"
+brew "tmux"
+brew "wget"
+brew "yq"
+brew "zoxide"
+brew "zsh-autosuggestions"
+brew "zsh-syntax-highlighting"
+
+# Media
+brew "ffmpeg"
+brew "yt-dlp"
+
+# Database
+brew "libpq", link: true
+
+# Apple
+brew "xcodes"
+brew "xcbeautify"
+brew "swiftformat"
+brew "swiftlint"
+brew "getsentry/xcodebuildmcp/mobilebuildmcp", trusted: true
+brew "mint"
+
+# Services
+brew "awscli"
+brew "doctl"
+brew "doppler"
+brew "heroku"
+brew "render"
+
+# Apps
+cask "ghostty"
+cask "orbstack"
+cask "zed"
+cask "font-jetbrains-mono-nerd-font"
+cask "lm-studio"
+cask "ngrok"
+
+# AI
+brew "ollama"
+
+# Fun
+brew "cbonsai"
+brew "fastfetch"
+brew "figlet"
+brew "lolcat"
