@@ -3,6 +3,10 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 FPATH="$(brew --prefix)/share/zsh/site-functions:$FPATH"
 autoload -Uz compinit && compinit
 
+# Emacs keys (ctrl+a, ctrl+e, ...). Without this, zsh switches to vi mode whenever
+# a shell inherits EDITOR=vim. Must come before the bindkey lines below.
+bindkey -e
+
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
