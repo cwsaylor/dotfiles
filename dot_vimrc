@@ -72,11 +72,11 @@ augroup my_colors | autocmd!
   autocmd ColorScheme * call s:MyHighlights()
 augroup END
 
-if has('termguicolors')
-  set termguicolors
-endif
+"if has('termguicolors')
+"  set termguicolors
+"endif
 " Built-in, high-contrast. Others that ship with Vim: habamax, wildcharm, sorbet.
-silent! colorscheme retrobox
+"silent! colorscheme retrobox
 call s:MyHighlights()
 
 " ------- UI / editing -------
