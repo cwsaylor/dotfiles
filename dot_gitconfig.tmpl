@@ -60,3 +60,7 @@
 [user]
 	name = {{ .name }}
 	email = {{ .email }}
+
+# Added by the Heroku CLI
+[credential "https://git.heroku.com"]
+	helper = !heroku git:credentials

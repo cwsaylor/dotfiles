@@ -15,13 +15,14 @@ which stays local. Nothing secret lives in this repo.
 | `dot_gitconfig.tmpl` | `~/.gitconfig` | delta pager, rebase/rerere defaults; `[user]` filled from the template |
 | `dot_Brewfile` | `~/.Brewfile` | Everything Homebrew installs (formulae, casks, fonts) |
 | `run_onchange_after_brew-bundle.sh.tmpl` | — | Runs `brew bundle` whenever the Brewfile changes |
+| `run_onchange_after_mise-install.sh.tmpl` | — | Runs `mise install` whenever the mise config changes |
 | `dot_config/ghostty/config` | `~/.config/ghostty/config` | Terminal |
 | `dot_config/mise/config.toml` | `~/.config/mise/config.toml` | Global Node, pnpm, Python versions |
 | `dot_config/uv/uv.toml` | `~/.config/uv/uv.toml` | 7-day release cooldown, malware check |
 | `dot_config/starship.toml` | `~/.config/starship.toml` | Prompt |
 | `private_dot_ssh/config` | `~/.ssh/config` (mode 0600) | SSH hosts |
 | `.chezmoi.toml.tmpl` | `~/.config/chezmoi/chezmoi.toml` | Prompts for name and email on first `init` |
-| `.chezmoiignore` | — | Repo-only files (this README) that must never be applied to `~` |
+| `.chezmoiignore` | — | Repo-only files (this README, `CLAUDE.md`) that must never be applied to `~` |
 
 ## New Mac from scratch
 
@@ -43,11 +44,11 @@ Steps 1–4 are the only ones that happen before chezmoi takes over.
    brew install chezmoi
    chezmoi init --apply https://github.com/cwsaylor/dotfiles.git
    ```
-   This prompts for git name and email, writes every dotfile, and runs `brew bundle`
-   (slow the first time: Ghostty, OrbStack, Zed, fonts, all the CLIs). Open a new terminal when it finishes.
-5. **Toolchains.**
+   This prompts for git name and email, writes every dotfile, runs `brew bundle`
+   (slow the first time: Ghostty, OrbStack, Zed, fonts, all the CLIs), then runs `mise install`
+   (Node 26/24, pnpm 12, Python 3.14/3.12). Open a new terminal when it finishes.
+5. **Toolchains.** mise already installed them in step 4; only the pnpm cooldown is manual.
    ```sh
-   mise install                                           # Node 26/24, pnpm 12, Python 3.14/3.12
    pnpm config set minimumReleaseAge 4320 --location=user  # 3-day cooldown on npm packages
    ```
 6. **Claude Code.**
@@ -120,6 +121,12 @@ chezmoi re-add ~/.Brewfile
 ```
 
 `brew bundle cleanup --file="$HOME/.Brewfile"` lists installed packages the Brewfile doesn't mention.
+
+### Changing tool versions
+
+```sh
+chezmoi edit ~/.config/mise/config.toml --apply   # apply reruns mise install because the config hash changed
+```
 
 ## Rules
 
