@@ -10,7 +10,6 @@ brew "git"
 brew "git-delta"
 brew "lazygit"
 brew "mise"
-brew "uv"
 
 # Shell
 brew "asciinema"

@@ -17,7 +17,7 @@ which stays local. Nothing secret lives in this repo.
 | `run_onchange_after_brew-bundle.sh.tmpl` | — | Runs `brew bundle` whenever the Brewfile changes |
 | `run_onchange_after_mise-install.sh.tmpl` | — | Runs `mise install` whenever the mise config changes |
 | `dot_config/ghostty/config` | `~/.config/ghostty/config` | Terminal |
-| `dot_config/mise/config.toml` | `~/.config/mise/config.toml` | Global Node, pnpm, Python versions |
+| `dot_config/mise/config.toml` | `~/.config/mise/config.toml` | Global Node, pnpm, Python, uv versions |
 | `dot_config/uv/uv.toml` | `~/.config/uv/uv.toml` | 7-day release cooldown, malware check |
 | `dot_config/starship.toml` | `~/.config/starship.toml` | Prompt |
 | `private_dot_ssh/config` | `~/.ssh/config` (mode 0600) | SSH hosts |
@@ -46,7 +46,7 @@ Steps 1–4 are the only ones that happen before chezmoi takes over.
    ```
    This prompts for git name and email, writes every dotfile, runs `brew bundle`
    (slow the first time: Ghostty, OrbStack, Zed, fonts, all the CLIs), then runs `mise install`
-   (Node 26/24, pnpm 12, Python 3.14/3.12). Open a new terminal when it finishes.
+   (Node 26/24, pnpm 12, Python 3.14/3.12, uv). Open a new terminal when it finishes.
 5. **Toolchains.** mise already installed them in step 4; only the pnpm cooldown is manual.
    ```sh
    pnpm config set minimumReleaseAge 4320 --location=user  # 3-day cooldown on npm packages
