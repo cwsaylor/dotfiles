@@ -44,8 +44,43 @@ set backup     backupdir=~/.vim/backup//,/tmp//
 set undofile   undodir=~/.vim/undo//,/tmp//
 set spellfile=~/.vim/spell/en.utf-8.add
 
+" ------- Colors -------
+" Tell Vim how Ghostty does truecolor, undercurl and coloured underlines.
+let &t_8f = "\e[38;2;%lu;%lu;%lum"
+let &t_8b = "\e[48;2;%lu;%lu;%lum"
+let &t_Cs = "\e[4:3m"
+let &t_Ce = "\e[4:0m"
+let &t_AU = "\e[58:5:%dm"
+let &t_8u = "\e[58:2::%lu:%lu:%lum"
+
+" Re-applied after any :colorscheme, so these survive theme changes.
+function! s:MyHighlights() abort
+  " Spelling: coloured squiggle under the word, never a background block.
+  hi clear SpellBad
+  hi clear SpellCap
+  hi clear SpellRare
+  hi clear SpellLocal
+  hi SpellBad   cterm=undercurl ctermul=Red     gui=undercurl guisp=#fb4934
+  hi SpellCap   cterm=undercurl ctermul=Blue    gui=undercurl guisp=#83a598
+  hi SpellRare  cterm=undercurl ctermul=Magenta gui=undercurl guisp=#d3869b
+  hi SpellLocal cterm=undercurl ctermul=Cyan    gui=undercurl guisp=#8ec07c
+  " Markdown: Vim's syntax leaves `code` uncoloured by default.
+  hi link markdownCode      String
+  hi link markdownCodeBlock String
+endfunction
+augroup my_colors | autocmd!
+  autocmd ColorScheme * call s:MyHighlights()
+augroup END
+
+if has('termguicolors')
+  set termguicolors
+endif
+" Built-in, high-contrast. Others that ship with Vim: habamax, wildcharm, sorbet.
+silent! colorscheme retrobox
+call s:MyHighlights()
+
 " ------- UI / editing -------
-set background=dark          " default colorscheme follows Ghostty's palette
+set background=dark
 set hidden                   " switch buffers without saving first
 set number numberwidth=4
 set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
@@ -62,16 +97,25 @@ if has('clipboard')
   set clipboard^=unnamed     " y / p use the macOS clipboard
 endif
 
-" Spelling
+" Spelling — off by default, <leader>z toggles it for the current buffer
 set spelllang=en_us
 set spelloptions=camel       " don't flag camelCase identifiers in notes
+set spellcapcheck=           " don't flag lowercase starts (lists, table cells)
+function! SpellToggle() abort
+  setlocal spell!
+  echo 'Spell ' . (&l:spell ? 'ON' : 'OFF')
+endfunction
+nnoremap <silent> <leader>z :call SpellToggle()<CR>
 
 " Statusline (replaces vim-airline)
+function! SpellStatus() abort
+  return &spell ? 'SPELL  ' : ''
+endfunction
 function! ProseStatus() abort
   return get(b:, 'prose_mode', 0) ? wordcount().words . ' words  ' : ''
 endfunction
 set laststatus=2
-let &statusline = ' %f %m%r%h%w%=%{ProseStatus()}%y  %l:%c  %p%% '
+let &statusline = ' %f %m%r%h%w%=%{SpellStatus()}%{ProseStatus()}%y  %l:%c  %p%% '
 
 " Show hidden characters + toggle
 set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»
@@ -94,7 +138,6 @@ augroup END
 function! s:ProseOn() abort
   setlocal nonumber nolist wrap linebreak
   setlocal textwidth=0 wrapmargin=0
-  setlocal spell
   setlocal scrolloff=8
   let &l:showbreak = '↪ '
   nnoremap <buffer> j gj
@@ -105,7 +148,7 @@ function! s:ProseOn() abort
 endfunction
 
 function! s:ProseOff() abort
-  setlocal number list< nowrap nolinebreak nospell
+  setlocal number list< nowrap nolinebreak
   setlocal textwidth< scrolloff<
   setlocal showbreak=
   silent! nunmap <buffer> j
